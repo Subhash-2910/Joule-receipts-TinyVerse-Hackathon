@@ -1,0 +1,25 @@
+# docker compose up -d cloud      -> cloud sync server on localhost:8787
+# docker compose stop cloud       -> "internet down": the app keeps working, items stay queued
+# docker compose start cloud      -> "reconnected": the sync worker drains the queue automatically
+# docker compose run --rm sim experiment batching --source simulated --quick   -> simulation mode
+services:
+  cloud:
+    build: { context: ., dockerfile: Dockerfile.cloud }
+    image: joule-cloud
+    ports: ["8787:8787"]
+    environment:
+      JOULE_CLOUD_FAIL_RATE: "${JOULE_CLOUD_FAIL_RATE:-0}"
+      JOULE_CLOUD_DROP_RESPONSE_RATE: "${JOULE_CLOUD_DROP_RESPONSE_RATE:-0}"
+    volumes: ["cloud-data:/data"]
+
+  sim:
+    build: { context: ., dockerfile: Dockerfile }
+    image: joule-sim
+    profiles: ["sim"]
+    depends_on: [cloud]
+    extra_hosts: ["host.docker.internal:host-gateway"]
+    volumes: ["sim-data:/data"]
+
+volumes:
+  cloud-data:
+  sim-data:

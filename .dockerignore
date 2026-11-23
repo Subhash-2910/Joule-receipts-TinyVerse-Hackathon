@@ -1,0 +1,6 @@
+.git
+.venv
+data
+cloud-data
+**/__pycache__
+*.db*
