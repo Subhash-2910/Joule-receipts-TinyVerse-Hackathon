@@ -99,16 +99,32 @@ def cmd_recommend(args):
                   f"({pred.get('provenance')})")
 
 
-def cmd_explain(args):
+def explain_and_save(conn, rec: dict, models=None, sensor_name: str = "auto"):
+    """Explain one recommendation with the Goal's model cascade, metering the AI's own energy, and store it."""
+    from joule import policy
     from joule.slm import explain
+    models = models or policy.policy(conn)["models"]
+    try:
+        sensor = get_sensor(sensor_name, 0.5)
+    except (ValueError, SensorUnavailable):
+        sensor = None
+    res = explain.explain_cascade(rec["facts"], models=models, sensor=sensor)
+    rid = db.save_report(conn, "explanation", res.text, res.model, res.grounded, res.ungrounded, rec_id=rec["id"],
+                         facts=rec["facts"], latency_s=res.latency_s, tokens=res.tokens, energy_j=res.energy_j,
+                         energy_prov=res.energy_provenance, cascade=res.steps)
+    return rid, res
+
+
+def cmd_explain(args):
     conn = _conn(args)
     rec = db.get_recommendation(conn, args.rec)
     if not rec:
         sys.exit(f"no recommendation {args.rec}")
-    res = explain.explain(rec["facts"], model=args.model)
-    rid = db.save_report(conn, "explanation", res.text, res.model, res.grounded, res.ungrounded, rec_id=rec["id"],
-                         facts=rec["facts"], latency_s=res.latency_s, tokens=res.tokens)
-    print(f"--- {res.model} | grounded={res.grounded} | attempts={res.attempts} | saved as report {rid}")
+    rid, res = explain_and_save(conn, rec, [args.model] if args.model else None, args.source)
+    used = " -> ".join(f"{st['model']}{' ✓' if st.get('grounded') else ' ✗'}" for st in res.steps
+                       if "skipped" not in st) or "none"
+    joules = f"{res.energy_j:.2f} J ({res.energy_provenance})" if res.energy_j is not None else "not metered"
+    print(f"--- {res.model} | grounded={res.grounded} | cascade: {used} | AI energy {joules} | saved as report {rid}")
     print(res.text)
     for bad in res.rejected:
         print(f"\n(rejected draft, numbers not in facts)\n{bad}")
@@ -155,6 +171,58 @@ def cmd_cloud(args):
     return server.main(argv)
 
 
+def cmd_goal(args):
+    from joule import policy
+    conn = _conn(args)
+    if args.goal:
+        changed = policy.set_goal(conn, args.goal)
+        print(f"goal set to {args.goal}" + ("" if changed else " (unchanged)") + " - queued for sync")
+    p = policy.policy(conn)
+    print(f"goal: {p['label']} - {p['blurb']}\n  models: {' -> '.join(p['models'])} | anomaly alert at "
+          f"{p['anomaly_ratio']}x usual | hide savings under {p['min_wh_day']} Wh/day")
+
+
+def cmd_verify(args):
+    from joule.analytics import label
+    conn = _conn(args)
+    chain = db.verify_chain(conn)
+    print(f"receipt chain: {'OK' if chain['ok'] else 'BROKEN at receipt ' + str(chain['broken_at'])} "
+          f"({chain['n']} receipts, head {chain['head'][:12]})")
+    for row in conn.execute("SELECT id FROM receipts ORDER BY id"):
+        lab = label.label_for(conn, row["id"], chain)
+        state = "CERTIFIED" if lab["certified"] else "provisional: " + "; ".join(lab["reasons"])
+        print(f"  #{lab['receipt_id']:<3} {lab['scenario']:<9} grade {lab['grade']} ({lab['ratio_pct']:.0f}% of "
+              f"reference)  {lab['hash'][:12]}  {state}")
+    if args.tamper_demo:
+        t = label.tamper_demo(conn)
+        ed = t["edited"]
+        print(f"\ntamper demo (in memory, database untouched): receipt #{ed['receipt_id']} {ed['field']} "
+              f"{ed['from']} -> {ed['to']}  =>  chain {'OK' if t['ok'] else 'BROKEN at receipt ' + str(t['broken_at'])}")
+    if args.certificate:
+        out = config.data_dir() / "certificates"
+        out.mkdir(exist_ok=True)
+        path = out / f"receipt-{args.certificate}.html"
+        path.write_text(label.certificate_html(label.label_for(conn, args.certificate, chain),
+                                               config.Settings().device_id))
+        print(f"certificate written: {path}")
+
+
+def cmd_whatif(args):
+    from joule.analytics import whatif
+    conn = _conn(args)
+    if args.what == "polling":
+        rc = whatif.latest_receipt(conn, "idle")
+        if not rc:
+            sys.exit("needs an idle receipt first: joule experiment idle")
+        out = whatif.polling(rc, args.value, args.hours)
+    else:
+        rc = whatif.latest_receipt(conn, "batching")
+        if not rc:
+            sys.exit("needs a batching receipt first: joule experiment batching")
+        out = whatif.batching(rc, int(args.value), args.runs)
+    print(json.dumps({k: v for k, v in out.items() if k != "model"}, indent=2, default=str))
+
+
 def cmd_status(args):
     from joule.slm import client
     from joule.sync import outbox
@@ -190,7 +258,7 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--interval", type=float, default=1.0)
     sp.add_argument("--no-procs", action="store_true")
     sp = add("experiment", cmd_experiment, "baseline vs optimized A/B runs -> receipt")
-    sp.add_argument("scenario", choices=["idle", "batching", "inference"])
+    sp.add_argument("scenario", choices=["idle", "batching", "inference", "cascade"])
     sp.add_argument("--source", choices=NAMES, default="auto")
     sp.add_argument("--repeats", type=int, default=5)
     sp.add_argument("--idle", type=float, default=20.0, help="seconds of idle measurement first")
@@ -207,7 +275,8 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--all", action="store_true")
     sp = add("explain", cmd_explain, "SLM explanation of one recommendation (grounded)")
     sp.add_argument("rec", type=int)
-    sp.add_argument("--model", default=None)
+    sp.add_argument("--model", default=None, help="use only this model (default: the Goal's cascade)")
+    sp.add_argument("--source", choices=NAMES, default="auto", help="sensor that meters the AI's own energy")
     sp = add("report", cmd_report, "write a Markdown report (SLM summary)")
     sp.add_argument("--no-slm", action="store_true")
     sp.add_argument("--model", default=None)
@@ -228,6 +297,16 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--fail-rate", type=float, default=0.0)
     sp.add_argument("--drop-rate", type=float, default=0.0)
     add("status", cmd_status, "what is available right now")
+    sp = add("goal", cmd_goal, "show or set the Goal: quality | balanced | lowest")
+    sp.add_argument("goal", nargs="?", choices=["quality", "balanced", "lowest"])
+    sp = add("verify", cmd_verify, "verify the receipt hash chain and show energy labels")
+    sp.add_argument("--tamper-demo", action="store_true", help="edit a copy in memory and show the chain break")
+    sp.add_argument("--certificate", type=int, default=None, help="write an HTML certificate for this receipt")
+    sp = add("whatif", cmd_whatif, "simulate a setting before changing it (ESTIMATED from a receipt)")
+    sp.add_argument("what", choices=["polling", "batching"])
+    sp.add_argument("value", type=float, help="seconds between scans, or batch size")
+    sp.add_argument("--hours", type=float, default=8.0, help="polling: hours per day")
+    sp.add_argument("--runs", type=float, default=10.0, help="batching: workloads per day")
     return p
 
 

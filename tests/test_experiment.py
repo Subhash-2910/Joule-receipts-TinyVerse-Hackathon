@@ -35,7 +35,7 @@ class ExperimentTest(TempDataTest):
         runs = self.conn.execute("SELECT COUNT(*) FROM experiment_runs WHERE experiment_id=?", (eid,)).fetchone()[0]
         self.assertEqual(runs, 6)
         kinds = [r["kind"] for r in self.conn.execute("SELECT kind FROM outbox")]
-        self.assertEqual(kinds, ["receipt"])
+        self.assertEqual(kinds, ["receipt", "chain"])           # + its hash-chain entry
         # a significant receipt becomes a verified recommendation
         from joule.analytics import recommend
         recs, _ = recommend.build(self.conn)

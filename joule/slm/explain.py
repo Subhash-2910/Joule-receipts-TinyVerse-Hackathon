@@ -44,6 +44,10 @@ class ExplainResult:
     attempts: int = 0
     fallback: bool = False
     rejected: list[str] = field(default_factory=list)   # SLM drafts that failed the grounding check
+    steps: list[dict] = field(default_factory=list)      # cascade: one entry per model tried (with its energy)
+    energy_j: float | None = None                        # energy of the whole explanation (all steps)
+    energy_provenance: str | None = None
+    escalated: bool = False                              # the small model failed and a bigger one was used
 
 
 def visible_facts(facts: dict) -> dict:
@@ -109,6 +113,65 @@ def explain(facts: dict, model: str | None = None, max_tokens: int = 180, retrie
                              attempts=retries + 1, fallback=True, rejected=rejected)
     return ExplainResult(text=rejected[-1], model=model, grounded=False, ungrounded=res.ungrounded if res else [],
                          latency_s=latency, tokens=tokens, attempts=retries + 1, rejected=rejected)
+
+
+CASCADE = ("qwen2.5:0.5b", "qwen2.5:1.5b")
+
+
+def explain_cascade(facts: dict, models: tuple[str, ...] | list[str] = CASCADE, sensor=None, idle_w: float | None = None,
+                    retries_per_model: int = 0, max_tokens: int = 180, allow_fallback: bool = True,
+                    settings: Settings | None = None) -> ExplainResult:
+    """Smallest model first; the grounding check is the gate. Escalate to the next model only when it fails.
+    Every step is metered, so the explanation carries its own energy cost."""
+    from joule.provenance import combine
+    from joule.slm.meter import EnergyMeter
+    s = settings or Settings()
+    steps, rejected, final = [], [], None
+    for m in models:
+        if not client.is_available(m, s):
+            steps.append({"model": m, "skipped": "not installed or Ollama offline"})
+            continue
+        with EnergyMeter(sensor, idle_w) as meter:
+            try:
+                res = explain(facts, model=m, max_tokens=max_tokens, retries=retries_per_model,
+                              allow_fallback=False, settings=s)
+                err = None
+            except client.SLMUnavailable as e:
+                res, err = None, str(e)
+        step = {"model": m, "grounded": bool(res and res.grounded), "attempts": res.attempts if res else 0,
+                "tokens": res.tokens if res else None, "latency_s": res.latency_s if res else None,
+                "ungrounded": res.ungrounded if res else [], **meter.result.as_dict()}
+        if err:
+            step["error"] = err[:200]
+        steps.append(step)
+        if res:
+            rejected += res.rejected
+        if res and res.grounded:
+            final = res
+            break
+    ran = [st for st in steps if "skipped" not in st]
+    measured = ran and all(st.get("energy_j") is not None for st in ran)
+    energy_j = sum(st["energy_j"] for st in ran) if measured else None
+    prov = str(combine(*[st["provenance"] for st in ran])) if measured else None
+    escalated = len(ran) > 1
+    if final is not None:
+        final.steps, final.energy_j, final.energy_provenance, final.escalated = steps, energy_j, prov, escalated
+        final.rejected, final.attempts = rejected, sum(st.get("attempts", 0) for st in ran)
+        final.latency_s = sum(st.get("latency_s") or 0 for st in ran)
+        final.tokens = sum(st.get("tokens") or 0 for st in ran)
+        return final
+    text = template(facts)
+    label = "template (SLM offline)" if not ran else f"template (after {', '.join(st['model'] for st in ran)} failed grounding)"
+    if not allow_fallback:
+        if not ran:
+            raise client.SLMUnavailable("no cascade model is available in Ollama")
+        text, label = rejected[-1] if rejected else text, ran[-1]["model"]
+    return ExplainResult(text=text, model=label, grounded=allow_fallback, fallback=allow_fallback,
+                         ungrounded=ran[-1]["ungrounded"] if ran else [], rejected=rejected, steps=steps,
+                         energy_j=energy_j, energy_provenance=prov, escalated=escalated,
+                         attempts=sum(st.get("attempts", 0) for st in ran),
+                         latency_s=sum(st.get("latency_s") or 0 for st in ran) or None,
+                         tokens=sum(st.get("tokens") or 0 for st in ran) or None)
 
 
 def sample_facts() -> list[dict]:

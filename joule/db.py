@@ -13,8 +13,9 @@ from pathlib import Path
 from typing import Iterator
 
 from joule import config
+from joule.chain import GENESIS, chain_hash, verify_entries
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT);
@@ -78,8 +79,66 @@ def connect(path: str | Path | None = None) -> sqlite3.Connection:
     conn.execute("PRAGMA busy_timeout=10000")
     conn.executescript(SCHEMA)
     conn.execute("INSERT OR IGNORE INTO meta(key, value) VALUES ('schema_version', ?)", (str(SCHEMA_VERSION),))
+    migrate(conn)
     config.give_back(path.parent)          # -wal / -shm files created under sudo
     return conn
+
+
+ADDED_COLUMNS = {
+    "reports": [("energy_j", "REAL"), ("energy_prov", "TEXT"), ("cascade_json", "TEXT")],
+    "receipts": [("prev_hash", "TEXT"), ("hash", "TEXT")],
+}
+
+
+def migrate(conn) -> None:
+    """v1 -> v2: SLM energy columns on reports, hash chain on receipts (existing receipts are chained in id order)."""
+    for table, cols in ADDED_COLUMNS.items():
+        have = {r["name"] for r in conn.execute(f"PRAGMA table_info({table})")}
+        for name, typ in cols:
+            if name not in have:
+                conn.execute(f"ALTER TABLE {table} ADD COLUMN {name} {typ}")
+    if conn.execute("SELECT COUNT(*) FROM receipts WHERE hash IS NULL").fetchone()[0]:
+        with tx(conn):
+            prev = GENESIS
+            for row in conn.execute("SELECT id, created, body_json, hash FROM receipts ORDER BY id").fetchall():
+                if row["hash"] is None:
+                    h = chain_hash(prev, row["id"], row["created"], json.loads(row["body_json"]))
+                    conn.execute("UPDATE receipts SET prev_hash=?, hash=? WHERE id=?", (prev, h, row["id"]))
+                    prev = h
+                else:
+                    prev = row["hash"]
+        enqueue_missing_chain(conn)
+    conn.execute("UPDATE meta SET value=? WHERE key='schema_version'", (str(SCHEMA_VERSION),))
+
+
+# ---------- tamper-evident receipt chain ----------
+
+def verify_chain(conn, rows=None) -> dict:
+    """Recompute the local chain. Returns {'ok', 'n', 'broken_at' (first bad receipt id or None), 'head'}."""
+    rows = rows if rows is not None else conn.execute(
+        "SELECT id, created, body_json, prev_hash, hash FROM receipts ORDER BY id").fetchall()
+    return verify_entries([chain_entry(r) for r in rows])
+
+
+def chain_entry(row) -> dict:
+    return {"receipt_id": row["id"], "created": row["created"], "prev_hash": row["prev_hash"], "hash": row["hash"],
+            "body": json.loads(row["body_json"])}
+
+
+# ---------- settings stored in the database (survive restarts) ----------
+
+def get_meta(conn, key: str, default: str | None = None) -> str | None:
+    row = conn.execute("SELECT value FROM meta WHERE key=?", (key,)).fetchone()
+    return row["value"] if row else default
+
+
+def set_meta(conn, key: str, value: str, in_tx: bool = False) -> None:
+    sql = "INSERT INTO meta(key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value=excluded.value"
+    if in_tx:
+        conn.execute(sql, (key, value))
+    else:
+        with tx(conn):
+            conn.execute(sql, (key, value))
 
 
 @contextmanager
@@ -147,14 +206,39 @@ def save_experiment(conn, scenario: str, source: str, provenance: str, repeats: 
 def save_receipt(conn, body: dict, experiment_id: int | None, rec_id: int | None,
                  predicted_wh: float | None, measured_wh: float, provenance: str, enqueue: bool = True) -> int:
     from joule.sync import outbox  # local import: outbox depends on db
+    body = json.loads(dumps(body))          # canonical form: exactly what is hashed is what is stored
     with tx(conn):
+        last = conn.execute("SELECT hash FROM receipts ORDER BY id DESC LIMIT 1").fetchone()
+        prev = (last["hash"] if last else None) or GENESIS
+        created = time.time()
         rid = conn.execute(
             "INSERT INTO receipts(created, rec_id, experiment_id, predicted_saved_wh, measured_saved_wh, provenance,"
-            " body_json) VALUES (?,?,?,?,?,?,?)",
-            (time.time(), rec_id, experiment_id, predicted_wh, measured_wh, provenance, dumps(body))).lastrowid
+            " body_json, prev_hash) VALUES (?,?,?,?,?,?,?,?)",
+            (created, rec_id, experiment_id, predicted_wh, measured_wh, provenance, dumps(body), prev)).lastrowid
+        h = chain_hash(prev, rid, created, body)
+        conn.execute("UPDATE receipts SET hash=? WHERE id=?", (h, rid))
         if enqueue:
             outbox.enqueue(conn, "receipt", {"receipt_id": rid, **body}, in_tx=True)
+            enqueue_chain(conn, {"receipt_id": rid, "created": created, "prev_hash": prev, "hash": h, "body": body})
     return rid
+
+
+def enqueue_chain(conn, entry: dict) -> None:
+    """One 'chain' event per receipt; the key is the hash, so re-sending can never create a duplicate."""
+    from joule.sync import outbox
+    outbox.enqueue(conn, "chain", {"device_id": config.Settings().device_id, **entry},
+                   key=f"chain:{entry['hash']}", in_tx=True)
+
+
+def enqueue_missing_chain(conn) -> int:
+    """Queue chain events for receipts that predate the chain (no-op for ones already queued)."""
+    n = 0
+    with tx(conn):
+        for row in conn.execute("SELECT id, created, body_json, prev_hash, hash FROM receipts ORDER BY id").fetchall():
+            if not conn.execute("SELECT 1 FROM outbox WHERE idem_key=?", (f"chain:{row['hash']}",)).fetchone():
+                enqueue_chain(conn, chain_entry(row))
+                n += 1
+    return n
 
 
 # ---------- recommendations / predictions / decisions / reports ----------
@@ -164,9 +248,9 @@ def upsert_recommendation(conn, rec: dict) -> int:
     with tx(conn):
         row = conn.execute("SELECT id, status FROM recommendations WHERE key = ?", (rec["key"],)).fetchone()
         if row:
-            if row["status"] == "open":
-                conn.execute("UPDATE recommendations SET facts_json=?, confidence=?, needs_review=?, title=?, action=?"
-                             " WHERE id=?", (dumps(rec["facts"]), rec.get("confidence"), int(rec.get("needs_review", 0)),
+            if row["status"] in ("open", "cleared"):       # a cleared alert that fires again re-opens
+                conn.execute("UPDATE recommendations SET facts_json=?, confidence=?, needs_review=?, title=?, action=?,"
+                             " status='open' WHERE id=?", (dumps(rec["facts"]), rec.get("confidence"), int(rec.get("needs_review", 0)),
                                              rec["title"], rec["action"], row["id"]))
             rid = row["id"]
         else:
@@ -219,15 +303,18 @@ def record_decision(conn, rec_id: int, decision: str, note: str = "", device_id:
 
 def save_report(conn, kind: str, body: str, model: str, grounded: bool | None, ungrounded: list | None = None,
                 rec_id: int | None = None, facts: dict | None = None, latency_s: float | None = None,
-                tokens: int | None = None, enqueue: bool = True) -> int:
+                tokens: int | None = None, enqueue: bool = True, energy_j: float | None = None,
+                energy_prov: str | None = None, cascade: list | None = None) -> int:
     from joule.sync import outbox
     with tx(conn):
         rid = conn.execute(
             "INSERT INTO reports(created, kind, rec_id, model, grounded, ungrounded_json, latency_s, tokens, body,"
-            " facts_json) VALUES (?,?,?,?,?,?,?,?,?,?)",
+            " facts_json, energy_j, energy_prov, cascade_json) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
             (time.time(), kind, rec_id, model, None if grounded is None else int(grounded), dumps(ungrounded or []),
-             latency_s, tokens, body, dumps(facts or {}))).lastrowid
+             latency_s, tokens, body, dumps(facts or {}), energy_j, energy_prov,
+             None if cascade is None else dumps(cascade))).lastrowid
         if enqueue:
             outbox.enqueue(conn, kind, {"report_id": rid, "rec_id": rec_id, "model": model,
-                                        "grounded": grounded, "body": body}, in_tx=True)
+                                        "grounded": grounded, "body": body, "energy_j": energy_j,
+                                        "energy_prov": energy_prov}, in_tx=True)
     return rid

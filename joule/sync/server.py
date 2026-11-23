@@ -4,6 +4,7 @@ POST /events   stores an event once per idempotency key; repeats return {"status
 GET  /health   liveness
 GET  /stats    totals: events processed, duplicates ignored, by kind
 GET  /events   last events
+GET  /chain    re-verifies each device's receipt hash chain from the 'chain' events it received
 
 Fault injection for the demo and tests:
   fail_rate            share of requests answered 503 before doing anything
@@ -21,6 +22,8 @@ import threading
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+
+from joule.chain import verify_entries
 
 
 class CloudStore:
@@ -55,6 +58,22 @@ class CloudStore:
         return {"events": n, "processed": c.get("processed", 0),
                 "duplicates_ignored": c.get("duplicates_ignored", 0), "by_kind": by_kind}
 
+    def verify_chains(self) -> dict:
+        """Recompute every device's chain independently of the laptop: proof the receipts were not edited."""
+        with self.lock:
+            rows = self.conn.execute("SELECT device_id, payload_json FROM events WHERE kind='chain'").fetchall()
+        by_dev: dict[str, list[dict]] = {}
+        for dev, payload in rows:
+            e = json.loads(payload)
+            by_dev.setdefault(e.get("device_id") or dev, []).append(e)
+        out = {}
+        for dev, entries in by_dev.items():
+            entries.sort(key=lambda e: e["receipt_id"])
+            res = verify_entries(entries)
+            res["head"] = res["head"][:12]
+            out[dev] = res
+        return out
+
     def recent(self, limit: int = 20) -> list[dict]:
         with self.lock:
             rows = self.conn.execute("SELECT idem_key, kind, device_id, received_at FROM events ORDER BY received_at "
@@ -80,6 +99,8 @@ def make_handler(store: CloudStore, fail_rate: float, drop_rate: float, rng: ran
                 return self._send(200, {"ok": True})
             if self.path == "/stats":
                 return self._send(200, store.stats())
+            if self.path == "/chain":
+                return self._send(200, store.verify_chains())
             if self.path.startswith("/events"):
                 return self._send(200, store.recent())
             self._send(404, {"error": "not found"})

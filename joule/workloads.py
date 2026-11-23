@@ -4,6 +4,8 @@ idle      fixed time: a folder-sync poller scans + hashes a folder every 100 ms 
           halfway; both must detect it - the trade-off is detection latency)
 batching  fixed work: 200 hashing jobs, one process launch per job vs 10 launches of 20 jobs
 inference fixed work: the same prompts answered by a larger vs smaller model / token cap (needs Ollama)
+cascade   fixed work: the same prompts, always the 1.5B model vs the small model first with the grounding check as
+          the gate (escalate to 1.5B only when it fails) - the copilot measuring its own AI (needs Ollama)
 """
 from __future__ import annotations
 
@@ -154,6 +156,21 @@ def answer_prompts(params: dict, model: str, max_tokens: int) -> WorkResult:
                               "grounded_rate": round(grounded / max(1, len(facts_list)), 3), "tokens": tokens})
 
 
+def answer_cascade(params: dict, models: list[str], max_tokens: int) -> WorkResult:
+    from joule.slm import explain
+    facts_list = explain.sample_facts()[: int(params["prompts"])]
+    grounded = escalated = tokens = 0
+    for facts in facts_list:
+        res = explain.explain_cascade(facts, models=models, max_tokens=max_tokens, allow_fallback=False)
+        grounded += int(res.grounded)
+        escalated += int(res.escalated)
+        tokens += res.tokens or 0
+    n = max(1, len(facts_list))
+    return WorkResult(checksum=f"prompts={len(facts_list)}", units=len(facts_list),
+                      detail={"models": "->".join(models), "grounded": grounded, "grounded_rate": round(grounded / n, 3),
+                              "escalated": escalated, "tokens": tokens})
+
+
 SCENARIOS: dict[str, Scenario] = {
     "idle": Scenario(
         name="idle", title="Idle / background activity", mode="fixed_time",
@@ -186,4 +203,15 @@ SCENARIOS: dict[str, Scenario] = {
         baseline=lambda p: answer_prompts(p, p["big_model"], p["big_tokens"]),
         optimized=lambda p: answer_prompts(p, p["small_model"], p["small_tokens"]),
         tradeoff="quality = share of explanations that pass the grounding check (grounded_rate)"),
+    "cascade": Scenario(
+        name="cascade", title="Self-measuring AI (model cascade)", mode="fixed_work",
+        baseline_desc="Always {big_model} for every explanation",
+        optimized_desc="{small_model} first; {big_model} only when the fact check fails",
+        unit="explanation", pilot_scale=0.34, same_checksum=True,
+        defaults={"prompts": 6, "big_model": "qwen2.5:1.5b", "small_model": "qwen2.5:0.5b", "max_tokens": 180},
+        quick={"prompts": 2},
+        baseline=lambda p: answer_cascade(p, [p["big_model"]], p["max_tokens"]),
+        optimized=lambda p: answer_cascade(p, [p["small_model"], p["big_model"]], p["max_tokens"]),
+        tradeoff="quality is held by the fact check: compare grounded_rate; escalated = answers that needed the "
+                 "larger model"),
 }

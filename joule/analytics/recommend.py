@@ -12,7 +12,7 @@ import math
 from collections import defaultdict
 
 from joule import config, db, energy
-from joule.analytics import apriori, knowledge, markov
+from joule.analytics import anomaly, apriori, knowledge, markov
 from joule.provenance import Provenance, combine
 
 REVIEW_BELOW = 0.6
@@ -202,8 +202,12 @@ def verified_from_receipts(conn, a) -> list[dict]:
     return recs
 
 
-def build(conn, since_ts: float = 0.0, a: config.Assumptions | None = None) -> tuple[list[dict], dict]:
+def build(conn, since_ts: float = 0.0, a: config.Assumptions | None = None,
+          anomaly_ratio: float | None = None) -> tuple[list[dict], dict]:
     a = a or config.Assumptions()
+    if anomaly_ratio is None:
+        from joule import policy
+        anomaly_ratio = policy.policy(conn)["anomaly_ratio"]
     samples, procs_by_sample = _load(conn, since_ts)
     summary: dict = {}
     recs: list[dict] = []
@@ -211,6 +215,9 @@ def build(conn, since_ts: float = 0.0, a: config.Assumptions | None = None) -> t
         ws = sorted(s["watts"] for s in samples)
         idle_w = ws[int(0.1 * (len(ws) - 1))]
         summary = markov.summarize([(s["ts"], s["watts"]) for s in samples], idle_w)
+        alerts = anomaly.detect(samples, procs_by_sample, ratio=anomaly_ratio)
+        summary["alerts"] = alerts
+        recs += anomaly.as_recommendations(alerts, a, projection)
         recs += background_hogs(samples, procs_by_sample, idle_w, a)
         recs += coactive_sets(samples, procs_by_sample, idle_w, a)
         last_batching = conn.execute("SELECT body_json FROM receipts WHERE json_extract(body_json,'$.scenario')="
@@ -224,4 +231,10 @@ def build(conn, since_ts: float = 0.0, a: config.Assumptions | None = None) -> t
 
 def refresh(conn, since_ts: float = 0.0) -> tuple[list[int], dict]:
     recs, summary = build(conn, since_ts)
-    return [db.upsert_recommendation(conn, rec) for rec in recs], summary
+    ids = [db.upsert_recommendation(conn, rec) for rec in recs]
+    live = {rec["key"] for rec in recs if rec["kind"] == "anomaly"}
+    with db.tx(conn):                      # an alert that no longer fires is cleared, not left open forever
+        for row in conn.execute("SELECT id, key FROM recommendations WHERE kind='anomaly' AND status='open'").fetchall():
+            if row["key"] not in live:
+                conn.execute("UPDATE recommendations SET status='cleared' WHERE id=?", (row["id"],))
+    return ids, summary

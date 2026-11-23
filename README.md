@@ -8,7 +8,7 @@ Analytics; core constraint: an open local SLM with fewer than 4B parameters).
 
 | | |
 |---|---|
-| Member | [Your Name] · [USN] · [Branch] |
+| Member | Subhash Kashyap K H · 1MS24CI128 · CSE (AI & ML) |
 | Main SLM | **Qwen2.5-1.5B-Instruct** (1.54B parameters, Apache-2.0) via Ollama, 4-bit, fully offline after download |
 | Comparison SLMs | Qwen2.5-0.5B-Instruct (0.49B) · GPT-2 124M + LoRA energy-report writer (my own, from `student-feedback-summarizer`) |
 | Hardware used | Apple M3, 16 GB RAM, macOS (MacBook, battery-powered) |
@@ -131,7 +131,7 @@ predicted saving with the measured one.
 
 | Assumption | Default | Source / status |
 |---|---|---|
-| Electricity tariff | ₹8.00 / kWh (`JOULE_TARIFF`) | **Placeholder** — replace with the rate on your electricity bill |
+| Electricity tariff | ₹5.80 / kWh (`JOULE_TARIFF`) | BESCOM Domestic (LT-1) flat base energy rate, FY 2026–27 (energy charge only; fixed charges, fuel adjustment and tax excluded). Receipts made before this was set keep the ₹8.00 placeholder they were recorded with (they are hash-chained, so they are never rewritten) |
 | Grid emission factor | 0.716 kg CO₂ / kWh (`JOULE_GRID_FACTOR`) | Approximate weighted average from the CEA CO₂ Baseline Database for the Indian power sector — **verify against the latest version before submission** |
 
 ### Findings so far (real runs on this Mac, 23 Nov 2026)
@@ -186,6 +186,35 @@ predicted saving with the measured one.
   so a lost response + retry is harmless. Fault injection (`JOULE_CLOUD_FAIL_RATE`, `JOULE_CLOUD_DROP_RESPONSE_RATE`) lets
   the demo prove it.
 * The server runs in **Docker** so the demo can do `docker stop` (offline) and `docker start` (reconnect).
+
+## 6b. What sets it apart
+
+**The copilot measures its own AI** (`joule/slm/explain.py: explain_cascade`, `joule/slm/meter.py`).
+Every explanation goes to Qwen2.5-0.5B first. The grounding check is the gate: only if the small model writes a number
+that is not in the facts does it escalate to Qwen2.5-1.5B (then to the template). The power sensor is sampled while the
+model writes, so each explanation carries its own energy (`⚡ 10.6 J · ESTIMATED · 0.5B ✓`). The `cascade` experiment
+proves it with a receipt: *always 1.5B* vs *small first*, same prompts, grounded rate reported for both.
+With the CPU estimate the GPU is invisible, so the joules are an under-count; run it under powermetrics for MEASURED:
+`sudo .venv/bin/python -m joule experiment cascade --source powermetrics --repeats 5`.
+**Result (receipt #8, MEASURED, Apple M3):** six explanations cost 20.4 mWh with 1.5B always vs 8.91 mWh small-first,
+−56 %, p = 0.008, 25/25 run pairs lower; 6/6 answers passed the fact check on both sides, 0 escalations (the 1.5B
+safety net was not needed on these prompts). Energy label C, certified; the cloud re-verified the 8-receipt chain.
+
+**Anomaly alerts, what-if and the Goal switch** (`joule/analytics/anomaly.py`, `whatif.py`, `joule/policy.py`).
+An app alerts when its recent power is ≥ N× its usual power on the same sensor (plus ≥ 0.3 W); the whole laptop alerts
+when its resting power rises. Alerts become recommendations the local AI explains, and clear themselves when power is
+back to normal. The what-if page fits a model through the **two measured points** of a receipt
+(polling: E = F + k/interval; batching: E = W + L·launches) so a slider between them interpolates real data
+(ESTIMATED; outside is flagged as extrapolation). One **Goal** setting (Best quality / Balanced / Lowest energy) sets
+the models used, alert sensitivity (4× / 3× / 2×) and which savings are shown; it is stored locally and synced.
+
+**Energy label and tamper-evident certificate** (`joule/chain.py`, `joule/analytics/label.py`).
+Each receipt gets an A–G grade (optimized energy as a share of the reference: A ≤ 25 % … G > 100 %) and an efficiency
+figure (jobs / minutes / answers per Wh). Receipts form a **SHA-256 hash chain** (each hash covers the previous hash,
+the id, the time and the body). Each chain entry is synced; the cloud's `GET /chain` recomputes it independently.
+A label is **CERTIFIED** only if the receipt is MEASURED, significant, did the same work and the chain verifies;
+otherwise it is PROVISIONAL with the reason. `joule verify --tamper-demo` edits a copy in memory and shows the break;
+`joule verify --certificate 7` writes a printable HTML certificate.
 
 ## 7. Run it
 
@@ -243,7 +272,7 @@ sudo python3 -m joule collect --source powermetrics --seconds 300
 1. **Measured 1 s evidence** — run in your own terminal (you type the password):
    `sudo python3 -m joule experiment batching --source powermetrics --repeats 5` (and `idle`)
 2. Inference-settings scenario on the real SLMs: `python3 -m joule experiment inference --repeats 3`
-3. Your electricity tariff (₹/kWh) and name / USN / branch; verify the CEA grid factor
+3. Verify the CEA grid factor (tariff and member details are filled in)
 4. Optional: GPT-2 + LoRA report writer (PyTorch, ~2 GB)
 
 ## 9. Reuse from my learning projects
