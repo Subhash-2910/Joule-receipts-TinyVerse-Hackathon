@@ -1,0 +1,1 @@
+cloud sync server on :8787 (fail_rate=0.0, drop_response_rate=0.5)

@@ -1,0 +1,62 @@
+19:41:04  cloud reachable: syncing queued items
+19:41:04  sync: {'done': 8, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 18, 'dead': 0}
+19:41:13  cloud reachable: syncing queued items
+20:21:48  cloud unreachable: working offline, items stay queued
+20:21:57  cloud reachable: syncing queued items
+20:21:57  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 19, 'dead': 0}
+22:36:40  cloud reachable: syncing queued items
+22:36:51  cloud reachable: syncing queued items
+22:41:31  cloud reachable: syncing queued items
+22:57:30  cloud reachable: syncing queued items
+22:57:33  cloud reachable: syncing queued items
+22:59:47  cloud reachable: syncing queued items
+03:44:50  cloud reachable: syncing queued items
+03:44:50  sync: {'done': 7, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 26, 'dead': 0}
+03:46:51  cloud reachable: syncing queued items
+03:46:51  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 27, 'dead': 0}
+03:49:34  cloud reachable: syncing queued items
+03:58:05  sync: {'done': 2, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 29, 'dead': 0}
+04:04:30  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 30, 'dead': 0}
+04:04:48  cloud reachable: syncing queued items
+04:28:02  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 31, 'dead': 0}
+04:33:18  sync: {'done': 5, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 36, 'dead': 0}
+04:33:21  sync: {'done': 5, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 41, 'dead': 0}
+04:33:24  sync: {'done': 4, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 45, 'dead': 0}
+04:37:35  cloud reachable: syncing queued items
+04:38:31  sync: {'done': 2, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 47, 'dead': 0}
+04:42:13  cloud reachable: syncing queued items
+04:44:50  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 48, 'dead': 0}
+04:44:53  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 49, 'dead': 0}
+04:44:56  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 50, 'dead': 0}
+04:53:05  cloud reachable: syncing queued items
+04:57:53  sync: {'done': 2, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 52, 'dead': 0}
+05:06:43  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 53, 'dead': 0}
+05:06:46  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 54, 'dead': 0}
+05:06:53  cloud reachable: syncing queued items
+05:12:17  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 55, 'dead': 0}
+05:25:42  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 56, 'dead': 0}
+05:25:45  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 57, 'dead': 0}
+05:25:48  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 58, 'dead': 0}
+09:46:50  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 59, 'dead': 0}
+09:47:02  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 60, 'dead': 0}
+09:47:05  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 61, 'dead': 0}
+09:47:14  sync: {'done': 2, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 63, 'dead': 0}
+09:47:20  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 64, 'dead': 0}
+09:47:23  sync: {'done': 2, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 66, 'dead': 0}
+09:47:29  sync: {'done': 2, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 68, 'dead': 0}
+09:47:32  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 69, 'dead': 0}
+10:02:26  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 70, 'dead': 0}
+10:03:15  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 71, 'dead': 0}
+10:03:18  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 72, 'dead': 0}
+10:04:18  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 73, 'dead': 0}
+10:04:27  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 74, 'dead': 0}
+10:04:33  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 75, 'dead': 0}
+10:04:39  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 76, 'dead': 0}
+11:02:17  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 77, 'dead': 0}
+11:02:29  sync: {'done': 2, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 79, 'dead': 0}
+11:02:32  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 80, 'dead': 0}
+11:05:47  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 81, 'dead': 0}
+11:05:57  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 82, 'dead': 0}
+11:06:06  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 83, 'dead': 0}
+11:06:12  sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 84, 'dead': 0}
+12:18:33  cloud unreachable: working offline, items stay queued

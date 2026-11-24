@@ -1,0 +1,6 @@
+watching http://localhost:8787 every 2.0s (Ctrl+C to stop)
+cloud reachable: syncing queued items
+sync: {'done': 7, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 9, 'dead': 0}
+cloud unreachable: working offline, items stay queued
+cloud reachable: syncing queued items
+sync: {'done': 1, 'duplicate': 0, 'retry': 0, 'dead': 0, 'offline': 0} | queue {'pending': 0, 'in_flight': 0, 'done': 10, 'dead': 0}

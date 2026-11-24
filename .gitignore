@@ -1,10 +1,12 @@
 __pycache__/
 *.pyc
 .venv/
-data/
 cloud-data/
+.claude/skills/impeccable/scripts/data/
 .env
 .DS_Store
 *.db
 *.db-wal
 *.db-shm
+# data/ is committed as the evidence behind the results (receipts, readings, certificates, reports)
+!data/*.db
