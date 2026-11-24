@@ -38,7 +38,7 @@ RAMP = ["#184f95", "#2a78d6", "#5598e7", "#9ec5f4"]          # idle -> heavy, da
 SCENARIOS = {"idle": "Idle background polling", "batching": "Batching small jobs",
              "cascade": "Self-measuring AI", "inference": "Model inference"}
 HERO = ("idle", "batching", "cascade")                         # the three proofs on the Overview
-PAGES = ["Overview", "Receipts", "Advice", "What-if", "Live", "Sync", "Report"]
+PAGES = ["Overview", "Receipts", "Certify", "Advice", "What-if", "Live", "Sync", "Report"]
 
 st.set_page_config(page_title="Joule Receipts", page_icon="⚡", layout="wide", initial_sidebar_state="collapsed")
 
@@ -82,15 +82,54 @@ h1, h2, h3, h4 { letter-spacing:-0.01em; }
 @keyframes pulse { 0% { box-shadow:0 0 0 0 rgba(12,163,12,0.55); } 70% { box-shadow:0 0 0 8px rgba(12,163,12,0); }
   100% { box-shadow:0 0 0 0 rgba(12,163,12,0); } }
 
-/* navigation (segmented control) */
-.st-key-nav button { border-radius:999px !important; padding:4px 16px !important; font-weight:600; }
-.st-key-nav [data-testid="stButtonGroup"] { gap:6px; }
+/* navigation dock + goal switch (segmented controls restyled as one rounded dock with spaced pills) */
+.st-key-nav [role="radiogroup"], .st-key-goal [role="radiogroup"], .st-key-rscn [role="radiogroup"], .st-key-window_min [role="radiogroup"] {
+  display:flex; flex-wrap:nowrap; gap:4px; padding:4px; width:fit-content; border-radius:999px;
+  background:rgba(255,255,255,0.035); border:1px solid var(--line); box-shadow:inset 0 1px 0 rgba(255,255,255,0.04); }
+.st-key-nav [role="radiogroup"] button, .st-key-goal [role="radiogroup"] button, .st-key-rscn [role="radiogroup"] button, .st-key-window_min [role="radiogroup"] button {
+  border:none !important; border-radius:999px !important; background:transparent !important; margin:0 !important;
+  padding:6px 15px !important; min-height:0 !important; color:var(--ink2) !important; font-weight:600;
+  transition:background .2s ease, color .2s ease, box-shadow .2s ease; }
+.st-key-nav [role="radiogroup"] button p, .st-key-goal [role="radiogroup"] button p, .st-key-rscn [role="radiogroup"] button p, .st-key-window_min [role="radiogroup"] button p { font-size:0.86rem; white-space:nowrap; }
+.st-key-nav [role="radiogroup"] button:hover, .st-key-goal [role="radiogroup"] button:hover, .st-key-rscn [role="radiogroup"] button:hover, .st-key-window_min [role="radiogroup"] button:hover {
+  background:rgba(255,255,255,0.06) !important; color:var(--ink) !important; }
+.st-key-nav [role="radiogroup"] button[aria-checked="true"], .st-key-rscn [role="radiogroup"] button[aria-checked="true"], .st-key-window_min [role="radiogroup"] button[aria-checked="true"] {
+  background:linear-gradient(180deg, rgba(57,135,229,0.34), rgba(57,135,229,0.18)) !important; color:#fff !important;
+  box-shadow:inset 0 0 0 1px rgba(57,135,229,0.6), 0 4px 16px rgba(57,135,229,0.22); }
+.st-key-goal [role="radiogroup"] button[aria-checked="true"] {
+  background:linear-gradient(180deg, rgba(12,163,12,0.30), rgba(12,163,12,0.14)) !important; color:#fff !important;
+  box-shadow:inset 0 0 0 1px rgba(12,163,12,0.55), 0 4px 16px rgba(12,163,12,0.18); }
+.st-key-nav [role="radiogroup"] button:focus-visible, .st-key-goal [role="radiogroup"] button:focus-visible,
+.stButton button:focus-visible, .stDownloadButton button:focus-visible {
+  outline:2px solid var(--blue-hi) !important; outline-offset:2px; }
+.st-key-nav, .st-key-goal { margin-top:14px; }
+[data-testid="stPopover"] { margin-top:14px; }
+[data-testid="stPopover"] > div > button, [data-testid="stPopover"] button[data-testid="stPopoverButton"] {
+  border-radius:999px !important; background:rgba(255,255,255,0.035) !important; border:1px solid var(--line) !important;
+  min-height:0 !important; padding:9px 16px !important; transition:background .2s, border-color .2s; }
+[data-testid="stPopover"] button:hover { background:rgba(255,255,255,0.07) !important; border-color:#3a3a37 !important; }
+/* browser surfaces carry the palette too */
+::selection { background:rgba(57,135,229,0.38); color:#fff; }
+input, textarea, [contenteditable] { caret-color:var(--blue-hi); }
+* { scrollbar-width:thin; scrollbar-color:#34342f transparent; }
+::-webkit-scrollbar { width:10px; height:10px; } ::-webkit-scrollbar-track { background:transparent; }
+::-webkit-scrollbar-thumb { background:#2c2c28; border-radius:10px; border:2px solid #0e0e0d; }
+::-webkit-scrollbar-thumb:hover { background:#3d3d38; }
+a { text-underline-offset:3px; }
+.stat .v, .step .v, .node .v, .wi-big, .alert-x, .hashline { font-variant-numeric:tabular-nums; }
+.ico { display:inline-block; vertical-align:-3px; flex:none; }
+.step .ic { color:var(--ink2); } .step.done .ic { color:#7fdc7f; }
+.node .k .ico { vertical-align:-2px; margin-right:3px; color:var(--ink2); }
+.node.dead .k .ico { color:#f08a8a; }
+.alert-ic { color:#fbc552; }
+.ai .who .ico { vertical-align:-2px; }
+.goal-label { font-size:0.66rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted);
+  text-align:right; margin:0 6px 4px 0; }
 
 /* typography helpers */
 .eyebrow { font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--muted); }
 .h-hero { font-size:2.1rem; font-weight:800; line-height:1.1; letter-spacing:-0.03em; color:var(--ink); margin:8px 0 4px; }
-.h-hero em { font-style:normal; background:linear-gradient(90deg,#86b6ef,#3987e5); -webkit-background-clip:text;
-  background-clip:text; color:transparent; }
+.h-hero em { font-style:normal; color:var(--blue-hi); }
 .lead { color:var(--ink2); font-size:0.95rem; line-height:1.5; max-width:62ch; }
 .note { color:var(--muted); font-size:0.82rem; line-height:1.5; }
 .mono { font-family:var(--mono); }
@@ -205,8 +244,7 @@ code.cmd { font-family:var(--mono); font-size:0.75rem; color:var(--ink2); backgr
   border-radius:12px; padding:10px 12px; line-height:1.7; max-height:230px; overflow:auto; }
 .log .t { color:var(--muted); } .log .ok { color:#7fdc7f; } .log .off { color:#fbc552; }
 
-/* goal switch */
-.st-key-goal button { border-radius:999px !important; padding:4px 12px !important; font-weight:600; }
+
 
 /* anomaly alert banner (icon + words, never colour alone) */
 [class*="st-key-cardalert"] { border-color:rgba(250,178,25,0.5); background:linear-gradient(180deg, rgba(250,178,25,0.10), rgba(250,178,25,0.03)); }
@@ -271,6 +309,27 @@ background_sync()
 # ------------------------------------------------------------------ helpers
 def conn():
     return db.connect()
+
+
+ICONS = {   # one drawn family (Lucide geometry), 1.75 stroke, currentColor
+    "measure": '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
+    "recommend": '<circle cx="11" cy="11" r="7.5"/><path d="m20.5 20.5-4.2-4.2"/>',
+    "explain": '<rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/>'
+               '<path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/>',
+    "prove": '<path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/>'
+             '<path d="M8 8h8M8 12h8M8 16h5"/>',
+    "sync": '<path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>',
+    "waiting": '<path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/>',
+    "sending": '<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
+    "delivered": '<circle cx="12" cy="12" r="10"/><path d="m8.5 12 2.5 2.5 4.5-5"/>',
+    "rejected": '<circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/>',
+    "alert": '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4M12 17h.01"/>',
+}
+
+
+def ico(name: str, size: int = 18) -> str:
+    return (f'<svg class="ico" width="{size}" height="{size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+            f'stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{ICONS[name]}</svg>')
 
 
 def esc(x) -> str:
@@ -463,7 +522,7 @@ with ng:
                          help="One setting tunes the copilot: which AI model explains, how sensitive alerts are, "
                               "and which savings are worth showing.")
 with nr:
-    with st.popover("⚙ Controls", width="stretch"):
+    with st.popover("Controls", icon=":material/tune:", width="stretch"):
         st.markdown("**Collect readings**")
         st.caption("Runs as a separate background process, so you can close this page.")
         secs = st.select_slider("Duration", options=[60, 120, 300, 600], value=120,
@@ -491,7 +550,7 @@ def alert_banner(c, key: str):
     more = f" · +{len(alerts) - 1} more" if len(alerts) > 1 else ""
     with st.container(key=f"cardalert-{key}"):
         a1, a2 = st.columns([6, 1.3], vertical_alignment="center")
-        a1.markdown(f"""<div class="alert-row"><div class="alert-ic">⚠</div><div>
+        a1.markdown(f"""<div class="alert-row"><div class="alert-ic">{ico("alert", 20)}</div><div>
             <div class="alert-t">Unusual power: {esc(al['subject'])}</div>
             <div class="alert-d">Last {al['recent_s']:.0f} s: {al['recent_w']:.2f} W vs its usual {al['usual_w']:.2f} W
             {prov(al['provenance'])} · alert at {POL['anomaly_ratio']:g}× usual ({esc(POL['label'])} goal){more}</div></div>
@@ -508,9 +567,8 @@ def page_overview():
     left, right = st.columns([7, 4], gap="medium")
     with left, st.container(key="cardglow-hero"):
         proven = sum(1 for k in HERO if k in BEST and strong(BEST[k][1]))
-        show(f"""<div class="eyebrow">Proven on this laptop · measured with powermetrics</div>
-          <div class="h-hero">Same work. <em>Far less energy.</em></div>
-          <div class="lead">Every saving below is a receipt: baseline and optimized runs, interleaved, measured, and
+        show(f"""<div class="h-hero" style="margin-top:2px">Same work. <em>Far less energy.</em></div>
+          <div class="lead">Every saving below is a receipt from this laptop: baseline and optimized runs, interleaved, measured with powermetrics, and
           tested for significance, including the energy of the copilot's own AI. {proven} of 3 are proven so far.</div>""")
         tiles = []
         for key in HERO:
@@ -533,6 +591,7 @@ def page_overview():
 
     with right, st.container(key="card-pipeline"):
         n_samples = c.execute("SELECT COUNT(*) FROM samples").fetchone()[0]
+        last_src = (c.execute("SELECT source FROM samples ORDER BY ts DESC LIMIT 1").fetchone() or [sensor.name])[0]
         recs = db.list_recommendations(c)
         n_open = sum(1 for x in recs if x["status"] == "open")
         ex = c.execute("SELECT COUNT(*), SUM(grounded) FROM reports WHERE kind='explanation'").fetchone()
@@ -545,11 +604,11 @@ def page_overview():
                     f'<div><div class="k">{k}</div><div class="d">{d}</div></div>'
                     f'<div class="v">{v}<small>{sub}</small></div></div>')
         show(f"""<div class="eyebrow">How it works · live status</div><div class="steps">
-          {step("📡", "Measure", f"{esc(sensor.name)} sensor, 1 s samples", f"{n_samples:,}", "readings", n_samples > 0)}
-          {step("🔎", "Recommend", "Markov states + Apriori patterns", len(recs), f"{n_open} open", bool(recs))}
-          {step("🧠", "Explain", " → ".join(m.split(":")[-1].upper() for m in POL["models"]) + " cascade, offline, self-metered", n_ex, f"{n_gr}/{n_ex} grounded", n_ex > 0)}
-          {step("🧾", "Prove", "A/B runs + Mann-Whitney + hash chain", n_rc, f"{sum(1 for k in HERO if k in BEST and strong(BEST[k][1]))} of 3 proven", n_proven > 0)}
-          {step("☁️", "Sync", "outbox, retries, no duplicates", qstats['done'], f"{qstats['pending']} waiting", qstats['done'] > 0)}
+          {step(ico("measure"), "Measure", f"{esc(last_src)} sensor, 1 s samples", f"{n_samples:,}", "readings", n_samples > 0)}
+          {step(ico("recommend"), "Recommend", "Markov states + Apriori patterns", len(recs), f"{n_open} open", bool(recs))}
+          {step(ico("explain"), "Explain", " → ".join(m.split(":")[-1].upper() for m in POL["models"]) + " cascade, offline, self-metered", n_ex, f"{n_gr}/{n_ex} grounded", n_ex > 0)}
+          {step(ico("prove"), "Prove", "A/B runs + Mann-Whitney + hash chain", n_rc, f"{sum(1 for k in HERO if k in BEST and strong(BEST[k][1]))} of 3 proven", n_proven > 0)}
+          {step(ico("sync"), "Sync", "outbox, retries, no duplicates", qstats['done'], f"{qstats['pending']} waiting", qstats['done'] > 0)}
         </div>""")
 
     l2, m2, r2 = st.columns([4, 4, 3], gap="medium")
@@ -559,7 +618,7 @@ def page_overview():
             rows, replay = window_rows(conn(), 10)
             show('<div class="eyebrow">Laptop power' + (f' · last session {replay}' if replay else ' · live') + '</div>')
             if not rows:
-                st.caption("No readings yet: ⚙ Controls → Start collecting.")
+                st.caption("No readings yet: Controls → Start collecting.")
                 return
             pts = [(x["ts"], x["watts"]) for x in rows]
             show(f'<div class="power-now" style="margin-top:8px">{rows[-1]["watts"]:.2f}<small> W</small></div>'
@@ -687,10 +746,10 @@ def label_card(c, row):
           <div class="hashline">receipt #{row['id']} <span class="{'ok' if lab['chain_ok'] else 'bad'}">sha256 {esc(lab['hash'] or '')}</span><br>
             ← previous {esc((lab['prev_hash'] or '')[:24])}…</div>""")
         b1, b2 = st.columns(2)
-        b1.download_button("⬇ Certificate (HTML)", label.certificate_html(lab, s.device_id),
+        b1.download_button("Certificate (HTML)", icon=":material/download:", data=label.certificate_html(lab, s.device_id),
                            file_name=f"energy-certificate-{row['id']}.html", mime="text/html", width="stretch",
                            key=f"cert{row['id']}")
-        if b2.button("🔨 Try to fake a number", width="stretch", key=f"tamper{row['id']}",
+        if b2.button("Try to fake a number", icon=":material/edit:", width="stretch", key=f"tamper{row['id']}",
                      help="Edits a COPY of the receipts in memory and re-checks the chain. Your data is not touched."):
             st.session_state.tamper = label.tamper_demo(c, row["id"])
         t = st.session_state.get("tamper")
@@ -722,7 +781,7 @@ def page_receipts():
             label_card(c, row)
             st.write("")
             with st.container(key="card-runs"):
-                show('<div class="eyebrow">The evidence</div><p class="rec-title" style="margin:6px 0 0">'
+                show('<p class="rec-title" style="margin:0">'
                      'Every run is a dot. The white line is the median.</p>')
                 vals = run_values(c, row["experiment_id"], b.get("basis"))
                 if any(vals.values()):
@@ -799,7 +858,7 @@ def page_advice():
     top_l.markdown('<div class="note">Facts and predictions are <b>computed</b> from your readings. The local AI only '
                    'writes the explanation, and a grounding check rejects any number it makes up.</div>',
                    unsafe_allow_html=True)
-    if top_r.button("↻ Refresh from readings", width="stretch"):
+    if top_r.button("Refresh from readings", icon=":material/refresh:", width="stretch"):
         recommend.refresh(c)
         st.rerun()
     recs = [x for x in db.list_recommendations(c) if x["status"] != "cleared"]
@@ -832,16 +891,16 @@ def page_advice():
             if last:
                 body = esc(last["body"]).replace("\n", "<br>")
                 chk = "✓ every number checked against the facts" if last["grounded"] else "✗ grounding check failed"
-                show(f"""<div class="ai"><div class="who">🧠 {esc(last['model'])} · offline<span class="chk">{chk}</span></div>
+                show(f"""<div class="ai"><div class="who">{ico("explain", 14)} {esc(last['model'])} · offline<span class="chk">{chk}</span></div>
                      {body}{ai_meter(last)}</div>""")
             st.write("")
             b1, b2, b3, b4, _ = st.columns([1.5, 1, 1, 1, 2])
-            if b1.button("🧠 Explain", key=f"ex{rec['id']}", type="primary", width="stretch"):
+            if b1.button("Explain", icon=":material/psychology:", key=f"ex{rec['id']}", type="primary", width="stretch"):
                 from joule.cli import explain_and_save
                 with st.spinner(f"{' → '.join(POL['models'])} writing offline, metering its own energy…"):
                     explain_and_save(c, rec)
                 st.rerun()
-            for col, decision, label in ((b2, "accept", "✓ Accept"), (b3, "reject", "✕ Reject"), (b4, "defer", "⏸ Defer")):
+            for col, decision, label in ((b2, "accept", "Accept"), (b3, "reject", "Reject"), (b4, "defer", "Defer")):
                 if col.button(label, key=f"{decision}{rec['id']}", width="stretch"):
                     db.record_decision(c, rec["id"], decision, device_id=s.device_id)
                     st.toast(f"{label} saved locally and queued for sync")
@@ -948,6 +1007,75 @@ def page_whatif():
               × {hrs} h/day × 30 days · ₹{a.tariff_inr_per_kwh}/kWh · {a.grid_kg_per_kwh} kg CO₂/kWh</div>""")
 
 
+# ================================================================== CERTIFY YOUR SOFTWARE
+def page_certify():
+    import shlex
+    from joule import certify
+    c = C
+    show('<div class="h-hero" style="font-size:1.7rem">Certify your own software</div>'
+         '<div class="lead" style="max-width:none">Give the command for the <b>old</b> version of your program and the '
+         'command for the <b>new</b> one. Joule Receipts runs both 5 times, alternating, measures the energy, checks '
+         'that both printed the same output (same work), and issues a hash-chained receipt, an A–G energy label and a '
+         'certificate. Fast programs are repeated until each run lasts 5 s, then divided per run.</div>')
+    st.write("")
+    form_l, form_r = st.columns([3, 2], gap="medium")
+    with form_l, st.container(key="card-certify-form"):
+        name = st.text_input("Software name", "Prime counter", key="cf_name")
+        old = st.text_input("Old version (reference) command", "python3 examples/primes_v1.py", key="cf_old")
+        new = st.text_input("New version (to certify) command", "python3 examples/primes_v2.py", key="cf_new")
+        f1, f2, f3 = st.columns([3, 1.3, 1.3])
+        folder = f1.text_input("Run in folder", str(ROOT), key="cf_dir")
+        reps = f2.number_input("Runs each", 3, 10, 5, key="cf_reps")
+        src = f3.selectbox("Sensor", ["auto", "estimate", "battery", "simulated"], key="cf_src",
+                           help="powermetrics needs sudo: use the Terminal command on the right for MEASURED")
+        loose = st.checkbox("Outputs may differ (equal work then not proven, label stays provisional)", key="cf_loose")
+        args = ["certify", "--name", name, "--baseline", old, "--candidate", new, "--cwd", folder,
+                "--repeats", str(reps), "--source", src] + (["--allow-different-output"] if loose else [])
+        if st.button("Certify in background", icon=":material/verified:", type="primary", key="cf_go",
+                     disabled=not (name.strip() and old.strip() and new.strip())):
+            spawn(args)
+            st.toast(f"Certifying '{name}': about 1–3 minutes. The certificate appears below when it finishes.")
+    with form_r, st.container(key="card-certify-how"):
+        show('<p class="rec-title">For a MEASURED certificate</p><div class="note" style="margin:6px 0 8px">Only '
+             'MEASURED, significant, same-output results can be CERTIFIED. Run this in Terminal (needs your '
+             'password):</div>')
+        st.code(" ".join(["sudo .venv/bin/python -m joule certify --name", shlex.quote(name), "--baseline",
+                          shlex.quote(old), "--candidate", shlex.quote(new), "--cwd", shlex.quote(folder),
+                          "--repeats", str(reps), "--source powermetrics"] +
+                         (["--allow-different-output"] if loose else [])), language="bash", wrap_lines=True)
+
+        @st.fragment(run_every="3s")
+        def job_log():
+            path = config.data_dir() / "jobs.log"
+            lines = [ln for ln in (path.read_text().splitlines()[-200:] if path.exists() else []) if ln.strip()]
+            start = max((i for i, ln in enumerate(lines) if ln.startswith("$ joule certify")), default=None)
+            tail = lines[start:][-7:] if start is not None else []
+            show('<div class="note" style="margin-top:8px">Latest certification run</div>'
+                 f'<div class="log">{"<br>".join(esc(ln[:120]) for ln in tail) or "no certification run yet"}</div>')
+        job_log()
+
+    st.write("")
+    certs = certify.certificates(c)
+    if not certs:
+        st.info("No software certified yet. The example above compares two prime counters that print the same "
+                "answer: version 1 tests every number by trial division, version 2 uses a sieve.")
+        return
+    rows = {row["id"]: (row, b) for row, b in BODIES if b.get("scenario") == certify.KEY}
+    pick = st.selectbox("Certificates", [x["id"] for x in certs if x["id"] in rows], key="cf_pick",
+                        format_func=lambda i: f"#{i} · {rows[i][1]['title'].replace('Software certificate: ', '')} · "
+                                              f"{rows[i][1]['provenance']} · "
+                                              f"{time.strftime('%d %b %H:%M', time.localtime(rows[i][0]['created']))}")
+    if pick is None:
+        st.caption("A certification just finished: reload the page to see it.")
+        return
+    row, b = rows[pick]
+    left, right = st.columns([5, 6], gap="large")
+    with left:
+        show(receipt_html(row, b, None))
+    with right:
+        label_card(c, row)
+
+
 # ================================================================== LIVE
 def page_live():
     st.segmented_control("Window", [5, 10, 30, 120], default=10, key="window_min",
@@ -959,11 +1087,11 @@ def page_live():
         window = st.session_state.get("window_min") or 10
         rows, replay = window_rows(c, window)
         if not rows:
-            st.info("No readings yet. Open **⚙ Controls → Start collecting**.")
+            st.info("No readings yet. Open **Controls → Start collecting**.")
             return
         if replay:
             st.caption(f"Not collecting right now, so this replays the last recorded session (ended {replay}). "
-                       "Open ⚙ Controls → Start collecting for live readings.")
+                       "Open Controls → Start collecting for live readings.")
         pts = [(x["ts"], x["watts"]) for x in rows]
         ws = sorted(w for _, w in pts)
         idle_w = ws[int(0.1 * (len(ws) - 1))]
@@ -1056,10 +1184,10 @@ def page_sync():
               <div class="note">{'Draining automatically every 3 s.' if online else 'Items wait safely in SQLite and go out automatically on reconnect.'}</div></div>
             </div>
             <div class="flow" style="margin-top:14px">
-              <div class="node"><div class="k">📥 Waiting</div><div class="v">{q['pending']}</div></div><div class="{wire}"></div>
-              <div class="node"><div class="k">📤 Sending</div><div class="v">{q['in_flight']}</div></div><div class="{wire}"></div>
-              <div class="node"><div class="k">✅ Delivered</div><div class="v">{q['done']}</div></div>
-              <div class="node{' dead' if q['dead'] else ''}"><div class="k">⛔ Rejected</div><div class="v">{q['dead']}</div></div>
+              <div class="node"><div class="k">{ico("waiting", 14)} Waiting</div><div class="v">{q['pending']}</div></div><div class="{wire}"></div>
+              <div class="node"><div class="k">{ico("sending", 14)} Sending</div><div class="v">{q['in_flight']}</div></div><div class="{wire}"></div>
+              <div class="node"><div class="k">{ico("delivered", 14)} Delivered</div><div class="v">{q['done']}</div></div>
+              <div class="node{' dead' if q['dead'] else ''}"><div class="k">{ico("rejected", 14)} Rejected</div><div class="v">{q['dead']}</div></div>
             </div>""")
             if online:
                 try:
@@ -1121,19 +1249,19 @@ def page_report():
         l.markdown(f'<div class="note">Latest report: {time.strftime("%d %b %Y, %H:%M", time.localtime(last["created"]))} · '
                    f'written by <b>{esc(last["model"])}</b> · grounding {"passed" if last["grounded"] else "failed"}</div>',
                    unsafe_allow_html=True)
-    if m.button("✍ Write new report", type="primary", width="stretch"):
+    if m.button("Write new report", icon=":material/edit_note:", type="primary", width="stretch"):
         from joule.slm.report import build_report
         with st.spinner("The local AI is writing the report, offline…"):
             out = build_report(c)
         st.toast(f"Saved {Path(out['path']).name} · grounded: {out['grounded']}")
         st.rerun()
     if last:
-        rr.download_button("⬇ Download .md", last["body"], file_name="energy-report.md", width="stretch")
+        rr.download_button("Download .md", icon=":material/download:", data=last["body"], file_name="energy-report.md", width="stretch")
         with st.container(key="card-report"):
             st.markdown(last["body"])
     else:
         st.info("No report yet. Press **Write new report**.")
 
 
-{"Overview": page_overview, "Receipts": page_receipts, "Advice": page_advice, "What-if": page_whatif, "Live": page_live,
+{"Overview": page_overview, "Receipts": page_receipts, "Certify": page_certify, "Advice": page_advice, "What-if": page_whatif, "Live": page_live,
  "Sync": page_sync, "Report": page_report}[page]()

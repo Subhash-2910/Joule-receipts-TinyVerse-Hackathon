@@ -223,6 +223,22 @@ def cmd_whatif(args):
     print(json.dumps({k: v for k, v in out.items() if k != "model"}, indent=2, default=str))
 
 
+def cmd_certify(args):
+    from joule import certify
+    sensor = get_sensor(args.source, args.interval)
+    print(f"certifying '{args.name}' with {sensor.name} ({sensor.provenance}), {args.repeats} runs per version")
+    eid, rid, body = certify.certify(_conn(args), args.name, args.baseline, args.candidate, sensor, args.repeats,
+                                     args.cwd, args.idle, args.interval, args.timeout, args.allow_different_output,
+                                     args.quick, args.min_seconds)
+    print(f"\nexperiment {eid}, receipt {rid} (hash-chained, queued for sync)")
+    print_receipt(body)
+    from joule.analytics import label
+    lab = label.label_for(_conn(args), rid)
+    print(f" label    : {lab['grade']} ({lab['ratio_pct']:.0f}% of the old version's energy) - "
+          + ("CERTIFIED" if lab["certified"] else "PROVISIONAL: " + "; ".join(lab["reasons"])))
+    print(f" certificate: {certify.write_certificate(_conn(args), rid)}")
+
+
 def cmd_status(args):
     from joule.slm import client
     from joule.sync import outbox
@@ -302,6 +318,20 @@ def build_parser() -> argparse.ArgumentParser:
     sp = add("verify", cmd_verify, "verify the receipt hash chain and show energy labels")
     sp.add_argument("--tamper-demo", action="store_true", help="edit a copy in memory and show the chain break")
     sp.add_argument("--certificate", type=int, default=None, help="write an HTML certificate for this receipt")
+    sp = add("certify", cmd_certify, "certify your own software: old vs new version, measured A/B -> label + certificate")
+    sp.add_argument("--name", required=True, help="name of the software")
+    sp.add_argument("--baseline", required=True, help="command that runs the old / reference version")
+    sp.add_argument("--candidate", required=True, help="command that runs the new version to certify")
+    sp.add_argument("--source", choices=NAMES, default="auto")
+    sp.add_argument("--repeats", type=int, default=5)
+    sp.add_argument("--idle", type=float, default=10.0, help="seconds of idle measurement first")
+    sp.add_argument("--interval", type=float, default=1.0)
+    sp.add_argument("--cwd", default=None, help="folder to run the commands in")
+    sp.add_argument("--timeout", type=float, default=300.0, help="seconds allowed per program run")
+    sp.add_argument("--allow-different-output", action="store_true",
+                    help="do not require identical output (label then stays provisional)")
+    sp.add_argument("--quick", action="store_true", help="short settle times (for a fast check)")
+    sp.add_argument("--min-seconds", type=float, default=5.0, help="repeat fast programs until a run lasts this long")
     sp = add("whatif", cmd_whatif, "simulate a setting before changing it (ESTIMATED from a receipt)")
     sp.add_argument("what", choices=["polling", "batching"])
     sp.add_argument("value", type=float, help="seconds between scans, or batch size")

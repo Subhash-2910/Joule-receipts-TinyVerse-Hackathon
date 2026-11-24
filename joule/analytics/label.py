@@ -38,6 +38,8 @@ def efficiency(scenario: str, body: dict, params: dict) -> dict | None:
         n, unit = (params.get("duration_s") or 0) / 60.0, "minutes of watching per Wh"
     elif scenario in ("inference", "cascade"):
         n, unit = params.get("prompts"), "explanations per Wh"
+    elif scenario == "certify":
+        n, unit = 1, "program runs per Wh"
     else:
         return None
     if not n:
@@ -67,6 +69,8 @@ def label_for(conn, receipt_id: int, chain: dict | None = None) -> dict:
         reasons.append("energy above idle is at the noise floor, so the ratio cannot be rated")
     if not b.get("equivalent_work"):
         reasons.append("the two settings did not do the same work")
+    elif b.get("scenario") == "certify" and "NOT proven" in (b.get("tradeoff") or ""):
+        reasons.append("outputs were allowed to differ, so equal work is not proven")
     if not chain_ok:
         reasons.append("hash chain does not verify (a receipt was edited)")
     return {"receipt_id": receipt_id, "scenario": b.get("scenario"), "title": b.get("title"),

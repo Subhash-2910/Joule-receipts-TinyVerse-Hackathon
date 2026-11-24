@@ -182,3 +182,43 @@ class CascadeTest(TempDataTest):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class CertifyTest(TempDataTest):
+    def run_certify(self, old, new, **kw):
+        import sys
+        from joule import certify
+        from joule.sensors import SimulatedSensor
+        py = f'"{sys.executable}" -c'
+        return certify.certify(self.conn, "Demo app", f"{py} \"{old}\"", f"{py} \"{new}\"", SimulatedSensor(seed=3),
+                               repeats=2, idle_s=0.2, interval_s=0.1, quick=True, min_seconds=0.2,
+                               log=lambda *_: None, **kw)
+
+    def test_two_versions_get_a_chained_receipt_and_label(self):
+        from joule import certify
+        eid, rid, body = self.run_certify("print(sum(range(300000)))", "print(44999850000)")
+        self.assertEqual(body["scenario"], "certify")
+        self.assertTrue(body["equivalent_work"])
+        self.assertEqual(body["repeats"], 2)
+        self.assertTrue(db.verify_chain(self.conn)["ok"])
+        lab = label.label_for(self.conn, rid)
+        self.assertIn(lab["grade"], list("ABCDEFG"))
+        self.assertFalse(lab["certified"])                 # SIMULATED can never be certified
+        if lab["efficiency"]:
+            self.assertEqual(lab["efficiency"]["unit"], "program runs per Wh")
+        self.assertTrue(certify.write_certificate(self.conn, rid).endswith(f"software-{rid}.html"))
+        self.assertEqual([c["id"] for c in certify.certificates(self.conn)], [rid])
+        from joule.workloads import SCENARIOS
+        self.assertNotIn("certify", SCENARIOS)               # the temporary scenario is removed again
+
+    def test_different_output_is_refused_unless_allowed(self):
+        with self.assertRaises(ValueError):
+            self.run_certify("print(1)", "print(2)")
+        _, rid, body = self.run_certify("print(1)", "print(2)", allow_different_output=True)
+        self.assertIn("NOT proven", body["tradeoff"])
+        self.assertIn("outputs were allowed to differ, so equal work is not proven",
+                      label.label_for(self.conn, rid)["reasons"])
+
+    def test_a_crashing_program_is_reported(self):
+        with self.assertRaises(RuntimeError):
+            self.run_certify("print(1)", "raise SystemExit(3)")
