@@ -1,0 +1,678 @@
+
+subhashkashyap@Subhashs-MacBook-Air joule-receipts % sudo .venv/bin/python -m joule collect --seconds 900 --source powermetrics
+Password:
+collecting 900.0s from powermetrics (MEASURED) every 1.0s
+04:31:40    0.66 W  [MEASURED/powermetrics]  WindowServer 0.07W, Google Chrome Helper (Aperitif Renderer) 0.06W, Codex (Aperitif Renderer) 0.05W
+04:31:42    0.60 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.07W, Google Chrome Helper (Aperitif) 0.06W, WindowServer 0.05W
+04:31:43    0.87 W  [MEASURED/powermetrics]  WindowServer 0.12W, Google Chrome Helper (Aperitif Renderer) 0.10W, Codex (Aperitif Renderer) 0.08W
+04:31:45    0.92 W  [MEASURED/powermetrics]  WindowServer 0.13W, Google Chrome Helper (Aperitif Renderer) 0.08W, Google Chrome Helper (Aperitif) 0.07W
+04:31:46    1.43 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.25W, Google Chrome 0.19W, WindowServer 0.15W
+04:31:47    1.27 W  [MEASURED/powermetrics]  mdworker_shared 0.24W, Google Chrome Helper (Aperitif Renderer) 0.22W, WindowServer 0.11W
+04:31:49    0.93 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.13W, WindowServer 0.13W, Codex (Aperitif Renderer) 0.09W
+04:31:50    2.69 W  [MEASURED/powermetrics]  Code Helper (Renderer) 1.24W, Codex (Aperitif Renderer) 0.18W, Google Chrome Helper (Aperitif Renderer) 0.17W
+04:31:51    1.58 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.31W, Codex (Aperitif Renderer) 0.29W, WindowServer 0.22W
+04:31:53    0.65 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.08W, Google Chrome Helper (Aperitif) 0.07W, WindowServer 0.06W
+04:31:54    0.81 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.09W, Codex (Aperitif Renderer) 0.07W
+04:31:56    0.68 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.09W, Google Chrome Helper (Aperitif Renderer) 0.06W, Google Chrome Helper (Aperitif) 0.05W
+04:31:57    0.71 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.06W, WindowServer 0.05W, Google Chrome Helper (Aperitif) 0.04W
+04:31:58    0.91 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.13W, WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.07W
+04:32:00    0.66 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.14W, WindowServer 0.05W, Google Chrome Helper (Aperitif Renderer) 0.04W
+04:32:01    0.94 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.13W, WindowServer 0.09W, Google Chrome Helper (Aperitif) 0.09W
+04:32:02    0.57 W  [MEASURED/powermetrics]  WindowServer 0.06W, Google Chrome Helper (Aperitif Renderer) 0.06W, Google Chrome Helper (Aperitif) 0.05W
+04:32:04    0.94 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.14W, com.apple.Virtualization.VirtualMachine 0.10W, Google Chrome Helper (Aperitif) 0.09W
+04:32:05    0.59 W  [MEASURED/powermetrics]  WindowServer 0.06W, Google Chrome Helper (Aperitif Renderer) 0.06W, Google Chrome Helper (Aperitif) 0.05W
+04:32:07    0.87 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.14W, WindowServer 0.10W, Codex (Aperitif Renderer) 0.07W
+04:32:08    0.63 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.07W, WindowServer 0.06W, Google Chrome Helper (Aperitif) 0.05W
+04:32:09    0.91 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.11W, Codex (Aperitif Renderer) 0.10W, WindowServer 0.09W
+04:32:11    0.69 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.07W, WindowServer 0.06W, Google Chrome Helper (Aperitif) 0.06W
+04:32:12    0.94 W  [MEASURED/powermetrics]  WindowServer 0.11W, Codex (Aperitif Renderer) 0.07W, Google Chrome Helper (Aperitif Renderer) 0.07W
+04:32:14    2.74 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.44W, Google Chrome 0.44W, WindowServer 0.34W
+04:32:15    1.52 W  [MEASURED/powermetrics]  mdworker_shared 0.37W, MenuBarAgent 0.17W, WindowServer 0.14W
+04:32:16    2.94 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.73W, MenuBarAgent 0.54W, WindowServer 0.52W
+04:32:18    6.83 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 2.69W, WindowServer 0.92W, Google Chrome Helper (Aperitif) 0.75W
+04:32:19    1.34 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.23W, WindowServer 0.21W, Google Chrome Helper (Aperitif) 0.16W
+04:32:21    6.64 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 2.76W, Google Chrome Helper (Aperitif) 0.99W, WindowServer 0.62W
+04:32:22    5.15 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 1.81W, Google Chrome Helper (Aperitif) 0.69W, WindowServer 0.44W
+04:32:24    5.63 W  [MEASURED/powermetrics]  MTLCompilerService 1.02W, Google Chrome Helper (Aperitif) 0.80W, Google Chrome Helper (Aperitif Renderer) 0.63W
+04:32:25    2.28 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.84W, Google Chrome Helper (Aperitif) 0.54W, Google Chrome Helper (Aperitif Renderer) 0.42W
+04:32:27    3.23 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.54W, Google Chrome Helper (Aperitif Renderer) 0.49W, WindowServer 0.34W
+04:32:28    3.47 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.65W, Google Chrome Helper (Aperitif Renderer) 0.52W, WindowServer 0.41W
+04:32:29    1.61 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.30W, Google Chrome Helper (Aperitif) 0.25W, WindowServer 0.22W
+04:32:31    3.21 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.55W, Google Chrome Helper (Aperitif) 0.54W, WindowServer 0.35W
+04:32:32    3.87 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.79W, Google Chrome Helper (Aperitif Renderer) 0.63W, WindowServer 0.57W
+04:32:34    3.32 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.59W, WindowServer 0.56W, Google Chrome Helper (Aperitif Renderer) 0.56W
+04:32:35    1.93 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.55W, WindowServer 0.25W, Google Chrome Helper (Aperitif) 0.22W
+04:32:37    1.23 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.26W, WindowServer 0.19W, Google Chrome Helper (Aperitif) 0.17W
+04:32:38    0.66 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.08W, Google Chrome Helper (Aperitif) 0.07W, WindowServer 0.05W
+04:32:39    1.40 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.26W, WindowServer 0.15W, Google Chrome Helper (Aperitif) 0.12W
+04:32:41    1.48 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.23W, WindowServer 0.19W, Google Chrome Helper (Aperitif) 0.17W
+04:32:42    1.23 W  [MEASURED/powermetrics]  WindowServer 0.14W, Google Chrome Helper (Aperitif Renderer) 0.12W, Google Chrome Helper (Aperitif) 0.10W
+04:32:44    1.55 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.22W, Google Chrome Helper (Aperitif) 0.18W, WindowServer 0.17W
+04:32:45    1.78 W  [MEASURED/powermetrics]  WindowServer 0.29W, Google Chrome Helper (Aperitif) 0.27W, Google Chrome Helper (Aperitif Renderer) 0.23W
+04:32:46    1.15 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.16W, WindowServer 0.15W, Google Chrome Helper (Aperitif Renderer) 0.13W
+04:32:48    1.81 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.39W, WindowServer 0.25W, Google Chrome Helper (Aperitif) 0.25W
+04:32:49    1.34 W  [MEASURED/powermetrics]  WindowServer 0.21W, Google Chrome Helper (Aperitif) 0.17W, MenuBarAgent 0.13W
+04:32:51    1.43 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.43W, Google Chrome Helper (Aperitif) 0.11W, WindowServer 0.10W
+04:32:52    1.11 W  [MEASURED/powermetrics]  WindowServer 0.18W, Google Chrome Helper (Aperitif Renderer) 0.16W, MenuBarAgent 0.10W
+04:32:53    0.77 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.08W, Codex (Aperitif Renderer) 0.07W
+04:32:55    3.10 W  [MEASURED/powermetrics]  WindowServer 0.38W, Google Chrome Helper (Aperitif Renderer) 0.38W, airportd 0.36W
+04:32:56    1.21 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.13W, Google Chrome Helper (Aperitif) 0.10W, BiomeAgent 0.08W
+04:32:58    1.14 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.22W, WindowServer 0.16W, Google Chrome Helper (Aperitif) 0.10W
+04:32:59    1.22 W  [MEASURED/powermetrics]  WindowServer 0.18W, Google Chrome Helper (Aperitif Renderer) 0.18W, Google Chrome Helper (Aperitif) 0.17W
+04:33:00    5.22 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 2.04W, WindowServer 0.56W, python 0.49W
+04:33:02    4.46 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 1.44W, WindowServer 0.65W, Google Chrome Helper (Aperitif) 0.53W
+04:33:03    4.23 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 1.12W, WindowServer 0.63W, Google Chrome Helper (Aperitif) 0.53W
+04:33:05    1.27 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.19W, WindowServer 0.18W, Google Chrome Helper (Aperitif) 0.17W
+04:33:06    0.94 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.14W, Google Chrome Helper (Aperitif) 0.13W, WindowServer 0.13W
+04:33:07    1.06 W  [MEASURED/powermetrics]  WindowServer 0.16W, Google Chrome Helper (Aperitif Renderer) 0.15W, Google Chrome Helper (Aperitif) 0.13W
+04:33:09    1.36 W  [MEASURED/powermetrics]  WindowServer 0.22W, Google Chrome Helper (Aperitif Renderer) 0.21W, Google Chrome Helper (Aperitif) 0.17W
+04:33:10    1.76 W  [MEASURED/powermetrics]  WindowServer 0.31W, Google Chrome Helper (Aperitif Renderer) 0.27W, Google Chrome Helper (Aperitif) 0.27W
+04:33:12    1.89 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.40W, WindowServer 0.37W, Google Chrome Helper (Aperitif) 0.32W
+04:33:13    1.23 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.21W, WindowServer 0.19W, Google Chrome Helper (Aperitif) 0.17W
+04:33:14    1.20 W  [MEASURED/powermetrics]  WindowServer 0.18W, Google Chrome Helper (Aperitif Renderer) 0.14W, Google Chrome Helper (Aperitif) 0.14W
+04:33:16    1.94 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.46W, WindowServer 0.38W, Google Chrome Helper (Aperitif) 0.27W
+04:33:17    1.50 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.23W, WindowServer 0.23W, Google Chrome Helper (Aperitif) 0.17W
+04:33:19    2.51 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.62W, WindowServer 0.46W, Google Chrome Helper (Aperitif) 0.30W
+04:33:20    1.92 W  [MEASURED/powermetrics]  WindowServer 0.37W, Google Chrome Helper (Aperitif Renderer) 0.35W, Google Chrome Helper (Aperitif) 0.25W
+04:33:21    2.41 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.72W, WindowServer 0.38W, Google Chrome Helper (Aperitif) 0.27W
+04:33:23    2.57 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.53W, WindowServer 0.41W, Google Chrome Helper (Aperitif) 0.34W
+04:33:24    1.73 W  [MEASURED/powermetrics]  com.apple.Virtualization.VirtualMachine 0.28W, WindowServer 0.22W, Google Chrome Helper (Aperitif Renderer) 0.20W
+04:33:26    2.10 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.45W, Google Chrome Helper (Aperitif Renderer) 0.43W, WindowServer 0.35W
+04:33:27    0.77 W  [MEASURED/powermetrics]  WindowServer 0.14W, Google Chrome Helper (Aperitif Renderer) 0.13W, Google Chrome Helper (Aperitif) 0.12W
+04:33:29    1.06 W  [MEASURED/powermetrics]  WindowServer 0.15W, Google Chrome Helper (Aperitif Renderer) 0.14W, Google Chrome Helper (Aperitif) 0.13W
+04:33:30    1.01 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.17W, Google Chrome Helper (Aperitif) 0.13W, WindowServer 0.10W
+04:33:31    1.13 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.28W, WindowServer 0.13W, Google Chrome Helper (Aperitif Renderer) 0.13W
+04:33:33    1.05 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.15W, Google Chrome Helper (Aperitif) 0.14W, WindowServer 0.14W
+04:33:34    2.30 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.73W, WindowServer 0.42W, Google Chrome Helper (Aperitif) 0.32W
+04:33:36    1.49 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.33W, WindowServer 0.26W, Google Chrome Helper (Aperitif) 0.14W
+04:33:37    1.53 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.28W, WindowServer 0.26W, Google Chrome Helper (Aperitif) 0.24W
+04:33:38    1.94 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.27W, WindowServer 0.25W, Google Chrome Helper (Aperitif Renderer) 0.24W
+04:33:40    2.60 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.44W, WindowServer 0.40W, Google Chrome Helper (Aperitif Renderer) 0.35W
+04:33:41    0.86 W  [MEASURED/powermetrics]  WindowServer 0.14W, Google Chrome Helper (Aperitif) 0.13W, Google Chrome Helper (Aperitif Renderer) 0.12W
+04:33:43    0.92 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.17W, Google Chrome Helper (Aperitif) 0.16W, WindowServer 0.14W
+04:33:44    0.89 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.13W, WindowServer 0.12W, Google Chrome Helper (Aperitif Renderer) 0.12W
+04:33:46    1.24 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.25W, WindowServer 0.19W, Google Chrome Helper (Aperitif) 0.19W
+04:33:47    1.04 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.32W, WindowServer 0.09W, Google Chrome Helper (Aperitif) 0.09W
+04:33:48    1.03 W  [MEASURED/powermetrics]  WindowServer 0.17W, Google Chrome Helper (Aperitif) 0.16W, Google Chrome Helper (Aperitif Renderer) 0.16W
+04:33:50    0.84 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.13W, Google Chrome Helper (Aperitif Renderer) 0.12W, WindowServer 0.11W
+04:33:51    1.15 W  [MEASURED/powermetrics]  WindowServer 0.25W, Google Chrome Helper (Aperitif Renderer) 0.24W, Google Chrome Helper (Aperitif) 0.23W
+04:33:52    0.73 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.12W, WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.11W
+04:33:54    1.03 W  [MEASURED/powermetrics]  WindowServer 0.14W, Google Chrome Helper (Aperitif Renderer) 0.13W, Google Chrome Helper (Aperitif) 0.13W
+04:33:55    1.22 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.15W, WindowServer 0.15W, Google Chrome Helper (Aperitif Renderer) 0.15W
+04:33:57    0.97 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.13W, Google Chrome Helper (Aperitif) 0.12W, WindowServer 0.11W
+04:33:58    0.92 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.18W, Google Chrome Helper (Aperitif) 0.18W, WindowServer 0.14W
+04:33:59    1.72 W  [MEASURED/powermetrics]  WindowServer 0.34W, Google Chrome Helper (Aperitif Renderer) 0.20W, Google Chrome Helper (Aperitif) 0.18W
+04:34:01    1.04 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.21W, Google Chrome Helper (Aperitif) 0.19W, WindowServer 0.18W
+04:34:02    0.74 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.10W, WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.09W
+04:34:04    1.42 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.32W, WindowServer 0.26W, Google Chrome Helper (Aperitif) 0.22W
+04:34:05    0.96 W  [MEASURED/powermetrics]  WindowServer 0.16W, Google Chrome Helper (Aperitif) 0.15W, Google Chrome Helper (Aperitif Renderer) 0.14W
+04:34:06    1.08 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.18W, WindowServer 0.17W, Google Chrome Helper (Aperitif) 0.17W
+04:34:08    0.77 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.13W, Google Chrome Helper (Aperitif Renderer) 0.12W, WindowServer 0.10W
+04:34:09    0.96 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.20W, Google Chrome Helper (Aperitif) 0.10W, WindowServer 0.10W
+04:34:11    0.82 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.12W, Google Chrome Helper (Aperitif Renderer) 0.11W, WindowServer 0.10W
+04:34:12    0.94 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.14W, Google Chrome Helper (Aperitif) 0.13W, WindowServer 0.13W
+04:34:13    0.93 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.14W, WindowServer 0.14W, Google Chrome Helper (Aperitif Renderer) 0.14W
+04:34:15    1.11 W  [MEASURED/powermetrics]  WindowServer 0.16W, Google Chrome Helper (Aperitif Renderer) 0.16W, Google Chrome Helper (Aperitif) 0.15W
+04:34:16    1.00 W  [MEASURED/powermetrics]  WindowServer 0.17W, Google Chrome Helper (Aperitif) 0.16W, Google Chrome Helper (Aperitif Renderer) 0.16W
+04:34:18    0.72 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.10W, Google Chrome Helper (Aperitif Renderer) 0.10W, WindowServer 0.09W
+04:34:19    0.96 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.15W, Google Chrome Helper (Aperitif) 0.15W, WindowServer 0.15W
+04:34:20    0.80 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.11W, Google Chrome Helper (Aperitif Renderer) 0.11W, WindowServer 0.11W
+04:34:22    0.96 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.16W, Google Chrome Helper (Aperitif) 0.15W, WindowServer 0.14W
+04:34:23    0.76 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.11W, Google Chrome Helper (Aperitif Renderer) 0.11W, WindowServer 0.10W
+04:34:25    1.22 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.25W, Google Chrome Helper (Aperitif) 0.18W, WindowServer 0.16W
+04:34:26    0.89 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.19W, Google Chrome Helper (Aperitif) 0.11W, WindowServer 0.10W
+04:34:27    0.96 W  [MEASURED/powermetrics]  WindowServer 0.14W, Google Chrome Helper (Aperitif) 0.13W, Google Chrome Helper (Aperitif Renderer) 0.12W
+04:34:29    1.30 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.25W, Google Chrome Helper (Aperitif) 0.21W, WindowServer 0.19W
+04:34:30    0.94 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.16W, Google Chrome Helper (Aperitif Renderer) 0.15W, WindowServer 0.15W
+04:34:31    0.73 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.11W, Google Chrome Helper (Aperitif Renderer) 0.11W, WindowServer 0.09W
+04:34:33    0.96 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.14W, Google Chrome Helper (Aperitif) 0.13W, WindowServer 0.12W
+04:34:34    1.05 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.19W, WindowServer 0.18W, Google Chrome Helper (Aperitif Renderer) 0.18W
+04:34:36    1.02 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.17W, Google Chrome Helper (Aperitif Renderer) 0.16W, WindowServer 0.15W
+04:34:37    0.91 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.16W, Google Chrome Helper (Aperitif) 0.16W, WindowServer 0.14W
+04:34:38    0.77 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.11W, Google Chrome Helper (Aperitif Renderer) 0.10W, WindowServer 0.09W
+04:34:40    0.88 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.16W, Google Chrome Helper (Aperitif) 0.15W, WindowServer 0.14W
+04:34:41    0.71 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.12W, Google Chrome Helper (Aperitif) 0.11W, WindowServer 0.09W
+04:34:43    1.11 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.18W, WindowServer 0.17W, Google Chrome Helper (Aperitif) 0.16W
+04:34:44    0.85 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.12W, Google Chrome Helper (Aperitif Renderer) 0.11W, WindowServer 0.10W
+04:34:45    1.05 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.20W, WindowServer 0.15W, Google Chrome Helper (Aperitif) 0.15W
+04:34:47    0.71 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.11W, Google Chrome Helper (Aperitif Renderer) 0.11W, WindowServer 0.09W
+04:34:48    0.83 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.13W, Google Chrome Helper (Aperitif Renderer) 0.13W, WindowServer 0.12W
+04:34:50    0.78 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.13W, Google Chrome Helper (Aperitif Renderer) 0.12W, WindowServer 0.11W
+04:34:51    0.79 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.14W, Google Chrome Helper (Aperitif Renderer) 0.13W, WindowServer 0.12W
+04:34:52    0.91 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.14W, WindowServer 0.14W, Google Chrome Helper (Aperitif Renderer) 0.13W
+04:34:54    0.92 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.15W, Google Chrome Helper (Aperitif) 0.14W, WindowServer 0.12W
+04:34:55    1.05 W  [MEASURED/powermetrics]  WindowServer 0.16W, Google Chrome Helper (Aperitif) 0.16W, Google Chrome Helper (Aperitif Renderer) 0.15W
+04:34:57    0.71 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.11W, Google Chrome Helper (Aperitif Renderer) 0.11W, WindowServer 0.10W
+04:34:58    0.90 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.15W, Google Chrome Helper (Aperitif) 0.15W, WindowServer 0.13W
+04:34:59    1.25 W  [MEASURED/powermetrics]  WindowServer 0.13W, launchd 0.12W, Google Chrome Helper (Aperitif) 0.11W
+04:35:01    1.42 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.20W, Google Chrome Helper (Aperitif) 0.19W, WindowServer 0.18W
+04:35:02    0.79 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif) 0.10W, Google Chrome Helper (Aperitif Renderer) 0.09W
+04:35:04    1.40 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.41W, Google Chrome Helper (Aperitif) 0.18W, WindowServer 0.18W
+04:35:05    1.31 W  [MEASURED/powermetrics]  WindowServer 0.23W, Google Chrome Helper (Aperitif) 0.22W, Google Chrome Helper (Aperitif Renderer) 0.21W
+04:35:06    0.98 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.14W, WindowServer 0.13W, Google Chrome Helper (Aperitif Renderer) 0.13W
+04:35:08    0.82 W  [MEASURED/powermetrics]  WindowServer 0.12W, Google Chrome Helper (Aperitif) 0.12W, Google Chrome Helper (Aperitif Renderer) 0.11W
+04:35:09    0.93 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.15W, Google Chrome Helper (Aperitif) 0.15W, WindowServer 0.13W
+04:35:10    0.79 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.13W, Google Chrome Helper (Aperitif Renderer) 0.12W, WindowServer 0.11W
+04:35:12    0.96 W  [MEASURED/powermetrics]  WindowServer 0.15W, Google Chrome Helper (Aperitif Renderer) 0.14W, Google Chrome Helper (Aperitif) 0.14W
+04:35:13    0.96 W  [MEASURED/powermetrics]  WindowServer 0.13W, Google Chrome Helper (Aperitif) 0.12W, spotlightknowledged.updater 0.11W
+04:35:15    1.30 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.29W, WindowServer 0.21W, Google Chrome Helper (Aperitif) 0.19W
+04:35:16    1.04 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.20W, Google Chrome Helper (Aperitif Renderer) 0.20W, WindowServer 0.17W
+04:35:17    0.76 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.11W, WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.10W
+04:35:19    1.48 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.27W, Google Chrome Helper (Aperitif Renderer) 0.26W, WindowServer 0.24W
+04:35:20    1.62 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.60W, WindowServer 0.17W, Google Chrome Helper (Aperitif) 0.14W
+04:35:22    1.03 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.17W, WindowServer 0.16W, Google Chrome Helper (Aperitif) 0.15W
+04:35:23    1.10 W  [MEASURED/powermetrics]  mdworker_shared 0.20W, Google Chrome Helper (Aperitif Renderer) 0.20W, Google Chrome Helper (Aperitif) 0.10W
+04:35:25    1.20 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.28W, Google Chrome Helper (Aperitif) 0.22W, WindowServer 0.18W
+04:35:26    0.85 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.14W, WindowServer 0.13W, Google Chrome Helper (Aperitif Renderer) 0.13W
+04:35:27    0.92 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.24W, Google Chrome Helper (Aperitif) 0.11W, WindowServer 0.11W
+04:35:29    0.80 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.11W, Google Chrome Helper (Aperitif Renderer) 0.10W, WindowServer 0.10W
+04:35:30    0.97 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.15W, WindowServer 0.14W, Google Chrome Helper (Aperitif Renderer) 0.14W
+04:35:31    0.84 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif) 0.11W, Google Chrome Helper (Aperitif Renderer) 0.10W, WindowServer 0.10W
+04:35:33    1.09 W  [MEASURED/powermetrics]  deleted 0.24W, Google Chrome Helper (Aperitif) 0.13W, Google Chrome Helper (Aperitif Renderer) 0.13W
+04:35:34    1.51 W  [MEASURED/powermetrics]  WindowServer 0.20W, pkd 0.17W, Google Chrome Helper (Aperitif Renderer) 0.17W
+04:35:36    2.85 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.63W, WindowServer 0.39W, Google Chrome Helper (Aperitif) 0.38W
+04:35:37    1.18 W  [MEASURED/powermetrics]  WindowServer 0.14W, Google Chrome Helper (Aperitif) 0.14W, Google Chrome Helper (Aperitif Renderer) 0.13W
+04:35:39    1.34 W  [MEASURED/powermetrics]  deleted 0.15W, triald_system 0.14W, Google Chrome Helper (Aperitif) 0.13W
+04:35:40    2.73 W  [MEASURED/powermetrics]  deleted 0.69W, Code Helper (Renderer) 0.38W, WindowServer 0.32W
+04:35:41    0.88 W  [MEASURED/powermetrics]  WindowServer 0.12W, Google Chrome Helper (Aperitif) 0.11W, Google Chrome Helper (Aperitif Renderer) 0.10W
+04:35:43    1.28 W  [MEASURED/powermetrics]  mobileassetd 0.24W, Google Chrome Helper (Aperitif Renderer) 0.14W, Google Chrome Helper (Aperitif) 0.14W
+04:35:44    1.28 W  [MEASURED/powermetrics]  deleted 0.13W, WindowServer 0.12W, Google Chrome Helper (Aperitif) 0.12W
+04:35:46    1.65 W  [MEASURED/powermetrics]  deleted 0.34W, Google Chrome Helper (Aperitif Renderer) 0.19W, WindowServer 0.17W
+04:35:47    0.91 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif) 0.10W, Google Chrome Helper (Aperitif Renderer) 0.10W
+04:35:48    1.43 W  [MEASURED/powermetrics]  mobileassetd 0.20W, Google Chrome Helper (Aperitif Renderer) 0.16W, Google Chrome Helper (Aperitif) 0.14W
+04:35:50    1.47 W  [MEASURED/powermetrics]  deleted 0.25W, cloudd 0.15W, WindowServer 0.13W
+04:35:51    1.72 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.32W, Code Helper (Renderer) 0.25W, WindowServer 0.21W
+04:35:53    1.51 W  [MEASURED/powermetrics]  triald 0.28W, WindowServer 0.17W, Google Chrome Helper (Aperitif) 0.13W
+04:35:54    1.55 W  [MEASURED/powermetrics]  WindowServer 0.20W, Google Chrome Helper (Aperitif) 0.17W, Code Helper (Renderer) 0.17W
+04:35:55    1.15 W  [MEASURED/powermetrics]  WindowServer 0.16W, com.apple.Virtualization.VirtualMachine 0.16W, Google Chrome Helper (Aperitif) 0.14W
+04:35:57    3.07 W  [MEASURED/powermetrics]  WindowServer 0.76W, Google Chrome Helper (Aperitif) 0.43W, Google Chrome Helper (Aperitif Renderer) 0.39W
+04:35:58    1.05 W  [MEASURED/powermetrics]  WindowServer 0.18W, Google Chrome Helper (Aperitif) 0.17W, Google Chrome Helper (Aperitif Renderer) 0.16W
+04:36:00    5.29 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 1.64W, WindowServer 0.89W, Google Chrome Helper (Aperitif) 0.62W
+04:36:01    0.98 W  [MEASURED/powermetrics]  WindowServer 0.18W, Google Chrome Helper (Aperitif Renderer) 0.14W, Google Chrome Helper (Aperitif) 0.14W
+04:36:03    2.06 W  [MEASURED/powermetrics]  WindowServer 0.28W, MenuBarAgent 0.25W, Google Chrome Helper (Aperitif Renderer) 0.22W
+04:36:04    2.46 W  [MEASURED/powermetrics]  WindowServer 0.47W, Google Chrome Helper (Aperitif Renderer) 0.40W, Google Chrome Helper (Aperitif) 0.23W
+04:36:05    1.10 W  [MEASURED/powermetrics]  WindowServer 0.21W, Google Chrome Helper (Aperitif Renderer) 0.16W, Google Chrome Helper (Aperitif) 0.10W
+04:36:07    1.05 W  [MEASURED/powermetrics]  WindowServer 0.18W, Google Chrome Helper (Aperitif Renderer) 0.13W, Google Chrome Helper (Aperitif) 0.12W
+04:36:08    1.17 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.19W, WindowServer 0.16W, Google Chrome 0.11W
+04:36:10    3.99 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 2.43W, WindowServer 0.27W, Google Chrome Helper (Aperitif) 0.25W
+04:36:11    3.07 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.77W, WindowServer 0.66W, Google Chrome Helper (Aperitif) 0.34W
+04:36:13    1.41 W  [MEASURED/powermetrics]  WindowServer 0.24W, Google Chrome Helper (Aperitif Renderer) 0.24W, Google Chrome Helper (Aperitif) 0.14W
+04:36:14    1.36 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.27W, WindowServer 0.23W, Code Helper (Renderer) 0.13W
+04:36:15    2.28 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.51W, WindowServer 0.41W, Google Chrome Helper (Aperitif) 0.22W
+04:36:17    0.88 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.10W, WindowServer 0.09W, Code Helper (Renderer) 0.05W
+04:36:18    1.07 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.29W, WindowServer 0.12W, Google Chrome Helper (Aperitif Renderer) 0.09W
+04:36:20    3.21 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.90W, WindowServer 0.44W, Code Helper (Renderer) 0.42W
+04:36:21    1.07 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.14W, WindowServer 0.13W, Google Chrome Helper (Aperitif) 0.10W
+04:36:22    1.38 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.30W, WindowServer 0.22W, Google Chrome Helper (Aperitif) 0.14W
+04:36:24    0.88 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.11W, WindowServer 0.10W, Google Chrome Helper (Aperitif) 0.09W
+04:36:25    0.97 W  [MEASURED/powermetrics]  Docker Desktop Helper (Renderer) 0.22W, WindowServer 0.11W, Codex (Aperitif Renderer) 0.07W
+04:36:27    1.23 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.38W, WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.09W
+04:36:28    1.66 W  [MEASURED/powermetrics]  WindowServer 0.26W, Google Chrome Helper (Aperitif Renderer) 0.17W, Google Chrome Helper (Aperitif) 0.13W
+04:36:29    3.19 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 1.09W, Code Helper (Renderer) 0.49W, WindowServer 0.22W
+04:36:31    3.75 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 1.26W, Google Chrome Helper (Aperitif) 0.47W, Codex (Aperitif Renderer) 0.32W
+04:36:32    0.66 W  [MEASURED/powermetrics]  WindowServer 0.09W, Google Chrome Helper (Aperitif Renderer) 0.09W, Codex (Aperitif Renderer) 0.05W
+04:36:34    1.33 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.23W, WindowServer 0.20W, Codex (Aperitif Renderer) 0.13W
+04:36:35    0.95 W  [MEASURED/powermetrics]  WindowServer 0.14W, Google Chrome Helper (Aperitif Renderer) 0.11W, Google Chrome Helper (Aperitif) 0.10W
+04:36:36    2.12 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.57W, WindowServer 0.31W, Codex (Aperitif Renderer) 0.18W
+04:36:38    1.11 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.18W, WindowServer 0.14W, Code Helper (Renderer) 0.11W
+04:36:39    1.99 W  [MEASURED/powermetrics]  claude 0.37W, WindowServer 0.26W, Google Chrome Helper (Aperitif Renderer) 0.15W
+04:36:41    1.61 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.31W, WindowServer 0.25W, Code Helper (Renderer) 0.20W
+04:36:42    1.07 W  [MEASURED/powermetrics]  WindowServer 0.17W, Google Chrome Helper (Aperitif Renderer) 0.13W, Google Chrome Helper (Aperitif) 0.11W
+04:36:44    0.81 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.10W, Codex (Aperitif Renderer) 0.06W
+04:36:45    0.99 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.12W, WindowServer 0.11W, Codex (Aperitif Renderer) 0.11W
+04:36:46    1.06 W  [MEASURED/powermetrics]  WindowServer 0.20W, Code Helper (Renderer) 0.13W, Google Chrome Helper (Aperitif Renderer) 0.10W
+04:36:48    1.08 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.17W, WindowServer 0.15W, Codex (Aperitif Renderer) 0.12W
+04:36:49    3.09 W  [MEASURED/powermetrics]  Code Helper (Renderer) 1.09W, WindowServer 0.38W, Code Helper 0.33W
+04:36:51    2.10 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 1.25W, WindowServer 0.18W, Code Helper (Renderer) 0.14W
+04:36:52    0.78 W  [MEASURED/powermetrics]  WindowServer 0.07W, Codex (Aperitif Renderer) 0.07W, Codex (Aperitif) 0.07W
+04:36:54    3.20 W  [MEASURED/powermetrics]  npm exec impeccable install 0.48W, WindowServer 0.45W, Codex (Aperitif Renderer) 0.38W
+04:36:55    0.88 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.10W, WindowServer 0.07W, claude 0.06W
+04:36:56    1.85 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.60W, WindowServer 0.28W, Codex (Aperitif) 0.17W
+04:36:58    3.97 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 1.05W, Code Helper (Renderer) 0.86W, WindowServer 0.40W
+04:36:59    0.86 W  [MEASURED/powermetrics]  launchd 0.13W, WindowServer 0.09W, Codex (Aperitif Renderer) 0.07W
+04:37:01    1.65 W  [MEASURED/powermetrics]  WindowServer 0.29W, Codex (Aperitif Renderer) 0.20W, Codex (Aperitif) 0.19W
+04:37:02    0.89 W  [MEASURED/powermetrics]  WindowServer 0.09W, npm exec impeccable install 0.08W, Code Helper (Renderer) 0.07W
+04:37:03    1.17 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.17W, WindowServer 0.17W, Codex (Aperitif Renderer) 0.10W
+04:37:05    0.76 W  [MEASURED/powermetrics]  WindowServer 0.11W, Code Helper (Renderer) 0.11W, Codex (Aperitif Renderer) 0.06W
+04:37:06    1.79 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.46W, WindowServer 0.19W, com.apple.Virtualization.VirtualMachine 0.15W
+04:37:08    1.30 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.25W, WindowServer 0.17W, Codex (Aperitif Renderer) 0.12W
+04:37:09    0.97 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.27W, WindowServer 0.08W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:37:10    3.00 W  [MEASURED/powermetrics]  WindowServer 0.30W, Code Helper (Renderer) 0.29W, Codex (Aperitif Renderer) 0.27W
+04:37:12    0.60 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.08W, WindowServer 0.06W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:37:13    0.77 W  [MEASURED/powermetrics]  WindowServer 0.11W, Codex (Aperitif Renderer) 0.07W, Google Chrome Helper (Aperitif Renderer) 0.07W
+04:37:15    0.72 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.07W, WindowServer 0.05W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:37:16    1.41 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.47W, WindowServer 0.14W, Codex (Aperitif Renderer) 0.12W
+04:37:17    0.66 W  [MEASURED/powermetrics]  WindowServer 0.07W, Code Helper (Renderer) 0.05W, Codex (Aperitif Renderer) 0.04W
+04:37:19    1.93 W  [MEASURED/powermetrics]  Google Chrome 0.45W, Code Helper (Renderer) 0.24W, Google Chrome Helper (Aperitif Renderer) 0.21W
+04:37:20    0.81 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.13W, WindowServer 0.08W, mdworker_shared 0.08W
+04:37:22    0.60 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.07W, WindowServer 0.06W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:37:23    0.84 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.09W, Code Helper (Renderer) 0.08W, WindowServer 0.07W
+04:37:24    2.37 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.47W, WindowServer 0.39W, Codex (Aperitif Renderer) 0.27W
+04:37:26    0.92 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.10W, Code Helper (Renderer) 0.08W
+04:37:27    1.45 W  [MEASURED/powermetrics]  WindowServer 0.30W, Codex (Aperitif Renderer) 0.19W, Codex (Aperitif) 0.16W
+04:37:29    1.72 W  [MEASURED/powermetrics]  WindowServer 0.40W, Codex (Aperitif Renderer) 0.29W, Codex (Aperitif) 0.24W
+04:37:30    0.82 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.11W, WindowServer 0.09W, Codex (Aperitif Renderer) 0.07W
+04:37:31    1.82 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.35W, Codex (Aperitif) 0.34W, WindowServer 0.29W
+04:37:33    3.58 W  [MEASURED/powermetrics]  Code Helper (Renderer) 1.60W, WindowServer 0.39W, Codex (Aperitif Renderer) 0.36W
+04:37:34    0.91 W  [MEASURED/powermetrics]  WindowServer 0.12W, Codex (Aperitif Renderer) 0.07W, Google Chrome Helper (Aperitif Renderer) 0.07W
+04:37:36    4.51 W  [MEASURED/powermetrics]  WindowServer 1.21W, Codex (Aperitif Renderer) 0.92W, Codex (Aperitif) 0.76W
+04:37:37    3.05 W  [MEASURED/powermetrics]  WindowServer 0.86W, Codex (Aperitif Renderer) 0.34W, Code Helper (Renderer) 0.34W
+04:37:38    1.94 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.27W, WindowServer 0.27W, Codex (Aperitif Renderer) 0.25W
+04:37:40    1.30 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.18W, Code Helper (Renderer) 0.18W, Codex (Aperitif Renderer) 0.13W
+04:37:41    0.96 W  [MEASURED/powermetrics]  WindowServer 0.15W, Google Chrome Helper (Aperitif Renderer) 0.11W, Codex (Aperitif Renderer) 0.10W
+04:37:43    0.68 W  [MEASURED/powermetrics]  WindowServer 0.07W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.05W
+04:37:44    0.88 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.13W, WindowServer 0.10W, Codex (Aperitif Renderer) 0.08W
+04:37:45    0.72 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.06W, Code Helper (Renderer) 0.05W
+04:37:47    1.03 W  [MEASURED/powermetrics]  WindowServer 0.13W, Google Chrome Helper (Aperitif Renderer) 0.10W, Code Helper (Renderer) 0.08W
+04:37:48    2.08 W  [MEASURED/powermetrics]  WindowServer 0.39W, Google Chrome Helper (Aperitif Renderer) 0.34W, Codex (Aperitif Renderer) 0.24W
+04:37:50    0.59 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.06W, WindowServer 0.06W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:37:51    0.72 W  [MEASURED/powermetrics]  WindowServer 0.08W, Google Chrome Helper (Aperitif Renderer) 0.06W, Codex (Aperitif Renderer) 0.06W
+04:37:52    1.19 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.23W, WindowServer 0.19W, Codex (Aperitif Renderer) 0.15W
+04:37:54    1.06 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.23W, WindowServer 0.16W, Codex (Aperitif Renderer) 0.11W
+04:37:55    1.25 W  [MEASURED/powermetrics]  WindowServer 0.18W, Codex (Aperitif Renderer) 0.17W, Google Chrome Helper (Aperitif Renderer) 0.14W
+04:37:57    0.82 W  [MEASURED/powermetrics]  com.apple.Virtualization.VirtualMachine 0.14W, WindowServer 0.06W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:37:58    1.17 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.21W, WindowServer 0.18W, Codex (Aperitif Renderer) 0.13W
+04:37:59    0.57 W  [MEASURED/powermetrics]  launchd 0.07W, WindowServer 0.05W, Codex (Aperitif Renderer) 0.04W
+04:38:01    0.62 W  [MEASURED/powermetrics]  WindowServer 0.08W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.05W
+04:38:02    0.88 W  [MEASURED/powermetrics]  WindowServer 0.16W, claude 0.08W, Codex (Aperitif Renderer) 0.07W
+04:38:04    0.52 W  [MEASURED/powermetrics]  WindowServer 0.05W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.05W
+04:38:05    0.59 W  [MEASURED/powermetrics]  WindowServer 0.07W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.04W
+04:38:06    0.64 W  [MEASURED/powermetrics]  WindowServer 0.09W, Codex (Aperitif Renderer) 0.05W, Codex (Aperitif) 0.05W
+04:38:08    1.38 W  [MEASURED/powermetrics]  photoanalysisd 0.32W, Google Chrome Helper (Aperitif Renderer) 0.24W, WindowServer 0.11W
+04:38:09    0.76 W  [MEASURED/powermetrics]  photoanalysisd 0.14W, Google Chrome Helper (Aperitif Renderer) 0.05W, WindowServer 0.05W
+04:38:11    0.93 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.18W, WindowServer 0.08W, Codex (Aperitif Renderer) 0.08W
+04:38:12    0.79 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.08W, Codex (Aperitif Renderer) 0.07W
+04:38:13    1.15 W  [MEASURED/powermetrics]  WindowServer 0.27W, Codex (Aperitif Renderer) 0.18W, Google Chrome Helper (Aperitif Renderer) 0.16W
+04:38:15    0.53 W  [MEASURED/powermetrics]  WindowServer 0.06W, Codex (Aperitif Renderer) 0.04W, Google Chrome Helper (Aperitif Renderer) 0.04W
+04:38:16    0.65 W  [MEASURED/powermetrics]  WindowServer 0.07W, Codex (Aperitif Renderer) 0.06W, Google Chrome Helper (Aperitif Renderer) 0.06W
+04:38:18    1.89 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.53W, WindowServer 0.30W, Codex (Aperitif Renderer) 0.16W
+04:38:19    0.66 W  [MEASURED/powermetrics]  WindowServer 0.07W, Google Chrome Helper (Aperitif Renderer) 0.04W, Code Helper (Renderer) 0.04W
+04:38:20    0.94 W  [MEASURED/powermetrics]  WindowServer 0.23W, Codex (Aperitif Renderer) 0.12W, Codex (Aperitif) 0.11W
+04:38:22    0.95 W  [MEASURED/powermetrics]  WindowServer 0.17W, Code Helper (Renderer) 0.09W, Codex (Aperitif Renderer) 0.09W
+04:38:23    2.55 W  [MEASURED/powermetrics]  mediaanalysisd 0.70W, WindowServer 0.37W, Code Helper (Renderer) 0.25W
+04:38:25    1.09 W  [MEASURED/powermetrics]  mediaanalysisd 0.19W, WindowServer 0.13W, Code Helper (Renderer) 0.07W
+04:38:26    1.71 W  [MEASURED/powermetrics]  WindowServer 0.23W, mediaanalysisd 0.19W, Google Chrome Helper (Aperitif Renderer) 0.19W
+04:38:28    6.92 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 2.71W, Codex (Aperitif Renderer) 0.74W, WindowServer 0.70W
+04:38:29    2.06 W  [MEASURED/powermetrics]  launchd 0.26W, WindowServer 0.25W, Google Chrome Helper (Aperitif Renderer) 0.21W
+04:38:31    2.58 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.53W, WindowServer 0.44W, Google Chrome Helper (Aperitif) 0.25W
+04:38:32    1.52 W  [MEASURED/powermetrics]  WindowServer 0.23W, Google Chrome Helper (Aperitif Renderer) 0.19W, Google Chrome Helper (Aperitif) 0.13W
+04:38:33    1.86 W  [MEASURED/powermetrics]  WindowServer 0.29W, Google Chrome Helper (Aperitif Renderer) 0.26W, Codex (Aperitif Renderer) 0.17W
+04:38:35    2.73 W  [MEASURED/powermetrics]  impeccable 0.58W, WindowServer 0.35W, Google Chrome Helper (Aperitif Renderer) 0.23W
+04:38:36    4.31 W  [MEASURED/powermetrics]  Code Helper (Renderer) 1.26W, Google Chrome Helper (Aperitif Renderer) 1.02W, WindowServer 0.36W
+04:38:38    2.61 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.91W, WindowServer 0.52W, Codex (Aperitif Renderer) 0.24W
+04:38:39    1.51 W  [MEASURED/powermetrics]  WindowServer 0.30W, Google Chrome Helper (Aperitif Renderer) 0.26W, Google Chrome Helper (Aperitif) 0.17W
+04:38:41    1.65 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.43W, WindowServer 0.29W, Google Chrome Helper (Aperitif) 0.19W
+04:38:42    1.54 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.34W, WindowServer 0.12W, Google Chrome Helper (Aperitif Renderer) 0.10W
+04:38:44    1.28 W  [MEASURED/powermetrics]  WindowServer 0.20W, Google Chrome Helper (Aperitif Renderer) 0.19W, Google Chrome Helper (Aperitif) 0.14W
+04:38:45    1.33 W  [MEASURED/powermetrics]  WindowServer 0.28W, Google Chrome Helper (Aperitif Renderer) 0.27W, Google Chrome Helper (Aperitif) 0.21W
+04:38:46    1.08 W  [MEASURED/powermetrics]  WindowServer 0.22W, Google Chrome Helper (Aperitif Renderer) 0.19W, Google Chrome Helper (Aperitif) 0.16W
+04:38:48    1.70 W  [MEASURED/powermetrics]  WindowServer 0.36W, Google Chrome Helper (Aperitif Renderer) 0.35W, Google Chrome Helper (Aperitif) 0.21W
+04:38:49    0.75 W  [MEASURED/powermetrics]  WindowServer 0.12W, Google Chrome Helper (Aperitif Renderer) 0.11W, Google Chrome Helper (Aperitif) 0.09W
+04:38:51    1.24 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.23W, WindowServer 0.19W, Google Chrome Helper (Aperitif) 0.15W
+04:38:52    0.83 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.14W, WindowServer 0.14W, Google Chrome Helper (Aperitif) 0.10W
+04:38:54    5.12 W  [MEASURED/powermetrics]  Code Helper (Renderer) 2.04W, WindowServer 0.62W, Google Chrome Helper (Aperitif Renderer) 0.42W
+04:38:55    3.54 W  [MEASURED/powermetrics]  WindowServer 0.67W, Code Helper (Renderer) 0.53W, Google Chrome Helper (Aperitif Renderer) 0.44W
+04:38:57    1.23 W  [MEASURED/powermetrics]  WindowServer 0.29W, Google Chrome Helper (Aperitif Renderer) 0.24W, Google Chrome Helper (Aperitif) 0.18W
+04:38:58    2.33 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.87W, WindowServer 0.47W, Google Chrome Helper (Aperitif) 0.23W
+04:38:59    0.80 W  [MEASURED/powermetrics]  WindowServer 0.12W, launchd 0.11W, Google Chrome Helper (Aperitif Renderer) 0.10W
+04:39:01    1.02 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.20W, WindowServer 0.15W, Google Chrome Helper (Aperitif) 0.09W
+04:39:02    0.70 W  [MEASURED/powermetrics]  WindowServer 0.15W, Google Chrome Helper (Aperitif Renderer) 0.12W, Google Chrome Helper (Aperitif) 0.09W
+04:39:03    1.97 W  [MEASURED/powermetrics]  WindowServer 0.47W, Google Chrome Helper (Aperitif Renderer) 0.39W, Codex (Aperitif Renderer) 0.33W
+04:39:05    0.73 W  [MEASURED/powermetrics]  WindowServer 0.13W, Google Chrome Helper (Aperitif Renderer) 0.11W, Google Chrome Helper (Aperitif) 0.08W
+04:39:06    3.51 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 2.14W, WindowServer 0.43W, Codex (Aperitif Renderer) 0.20W
+04:39:08    1.69 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.45W, WindowServer 0.34W, Google Chrome Helper (Aperitif) 0.19W
+04:39:09    1.57 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.46W, WindowServer 0.31W, Google Chrome Helper (Aperitif Renderer) 0.19W
+04:39:10    0.80 W  [MEASURED/powermetrics]  WindowServer 0.13W, Google Chrome Helper (Aperitif Renderer) 0.10W, Google Chrome Helper (Aperitif) 0.08W
+04:39:12    0.86 W  [MEASURED/powermetrics]  WindowServer 0.18W, Google Chrome Helper (Aperitif Renderer) 0.15W, Google Chrome Helper (Aperitif) 0.12W
+04:39:13    1.41 W  [MEASURED/powermetrics]  WindowServer 0.32W, Google Chrome Helper (Aperitif Renderer) 0.26W, Google Chrome Helper (Aperitif) 0.19W
+04:39:15    1.54 W  [MEASURED/powermetrics]  WindowServer 0.35W, Google Chrome Helper (Aperitif Renderer) 0.28W, Google Chrome Helper (Aperitif) 0.22W
+04:39:16    3.11 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.69W, WindowServer 0.54W, Google Chrome Helper (Aperitif) 0.31W
+04:39:18    1.70 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.57W, WindowServer 0.26W, Google Chrome Helper (Aperitif) 0.15W
+04:39:19    0.77 W  [MEASURED/powermetrics]  WindowServer 0.14W, Google Chrome Helper (Aperitif Renderer) 0.12W, Google Chrome Helper (Aperitif) 0.09W
+04:39:20    0.67 W  [MEASURED/powermetrics]  WindowServer 0.13W, Google Chrome Helper (Aperitif Renderer) 0.11W, Google Chrome Helper (Aperitif) 0.08W
+04:39:22    0.84 W  [MEASURED/powermetrics]  WindowServer 0.18W, Google Chrome Helper (Aperitif Renderer) 0.16W, Google Chrome Helper (Aperitif) 0.11W
+04:39:23    1.83 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.70W, WindowServer 0.19W, Codex (Aperitif Renderer) 0.15W
+04:39:25    0.94 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.12W, WindowServer 0.11W, Codex (Aperitif Renderer) 0.10W
+04:39:26    1.45 W  [MEASURED/powermetrics]  WindowServer 0.33W, Google Chrome Helper (Aperitif Renderer) 0.27W, Codex (Aperitif Renderer) 0.18W
+04:39:28    1.42 W  [MEASURED/powermetrics]  duetexpertd 0.26W, Google Chrome Helper (Aperitif Renderer) 0.19W, WindowServer 0.19W
+04:39:29    0.80 W  [MEASURED/powermetrics]  duetexpertd 0.23W, WindowServer 0.05W, Google Chrome Helper (Aperitif Renderer) 0.04W
+04:39:30    0.83 W  [MEASURED/powermetrics]  duetexpertd 0.21W, WindowServer 0.07W, Codex (Aperitif Renderer) 0.04W
+04:39:32    0.98 W  [MEASURED/powermetrics]  duetexpertd 0.32W, WindowServer 0.08W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:39:33    1.63 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.27W, WindowServer 0.24W, Codex (Aperitif Renderer) 0.17W
+04:39:34    0.68 W  [MEASURED/powermetrics]  WindowServer 0.08W, Google Chrome Helper (Aperitif Renderer) 0.04W, Codex (Aperitif Renderer) 0.04W
+04:39:36    1.26 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.43W, Google Chrome Helper (Aperitif Renderer) 0.14W, WindowServer 0.11W
+04:39:37    1.03 W  [MEASURED/powermetrics]  WindowServer 0.16W, Codex (Aperitif Renderer) 0.10W, Codex (Aperitif) 0.09W
+04:39:39    0.70 W  [MEASURED/powermetrics]  WindowServer 0.08W, Codex (Aperitif Renderer) 0.05W, claude 0.04W
+04:39:40    0.60 W  [MEASURED/powermetrics]  WindowServer 0.08W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.04W
+04:39:41    1.50 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.78W, WindowServer 0.09W, Codex (Aperitif) 0.08W
+04:39:43    1.21 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.25W, WindowServer 0.17W, Codex (Aperitif Renderer) 0.10W
+04:39:44    0.70 W  [MEASURED/powermetrics]  WindowServer 0.09W, Codex (Aperitif Renderer) 0.06W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:39:46    0.58 W  [MEASURED/powermetrics]  WindowServer 0.09W, Codex (Aperitif Renderer) 0.04W, Google Chrome Helper (Aperitif Renderer) 0.04W
+04:39:47    0.58 W  [MEASURED/powermetrics]  WindowServer 0.08W, Google Chrome Helper (Aperitif Renderer) 0.04W, Codex (Aperitif Renderer) 0.04W
+04:39:48    1.43 W  [MEASURED/powermetrics]  WindowServer 0.38W, Codex (Aperitif Renderer) 0.20W, Google Chrome Helper (Aperitif Renderer) 0.16W
+04:39:50    0.67 W  [MEASURED/powermetrics]  WindowServer 0.09W, Google Chrome Helper (Aperitif Renderer) 0.07W, Codex (Aperitif Renderer) 0.05W
+04:39:51    0.84 W  [MEASURED/powermetrics]  WindowServer 0.12W, Google Chrome Helper (Aperitif Renderer) 0.10W, Codex (Aperitif Renderer) 0.08W
+04:39:53    1.19 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.36W, WindowServer 0.14W, Codex (Aperitif Renderer) 0.07W
+04:39:54    0.72 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.09W, WindowServer 0.09W, Codex (Aperitif Renderer) 0.05W
+04:39:55    0.72 W  [MEASURED/powermetrics]  WindowServer 0.08W, Codex (Aperitif Renderer) 0.05W, Codex (Aperitif) 0.04W
+04:39:57    1.06 W  [MEASURED/powermetrics]  WindowServer 0.12W, airportd 0.08W, Codex (Aperitif Renderer) 0.07W
+04:39:58    0.99 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.20W, searchpartyuseragent 0.17W, WindowServer 0.13W
+04:39:59    0.61 W  [MEASURED/powermetrics]  WindowServer 0.09W, launchd 0.06W, Google Chrome Helper (Aperitif Renderer) 0.04W
+04:40:01    0.79 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.08W, Codex (Aperitif Renderer) 0.06W
+04:40:02    0.26 W  [MEASURED/powermetrics]  WindowServer 0.08W, Codex (Aperitif Renderer) 0.04W, Google Chrome Helper (Aperitif Renderer) 0.04W
+04:40:04    0.59 W  [MEASURED/powermetrics]  WindowServer 0.08W, Google Chrome Helper (Aperitif Renderer) 0.04W, Codex (Aperitif Renderer) 0.04W
+04:40:05    0.59 W  [MEASURED/powermetrics]  WindowServer 0.07W, Codex (Aperitif Renderer) 0.04W, Google Chrome Helper (Aperitif Renderer) 0.04W
+04:40:06    0.81 W  [MEASURED/powermetrics]  WindowServer 0.12W, Google Chrome Helper (Aperitif Renderer) 0.08W, Codex (Aperitif Renderer) 0.07W
+04:40:08    1.41 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.35W, com.apple.Virtualization.VirtualMachine 0.16W, WindowServer 0.15W
+04:40:09    0.58 W  [MEASURED/powermetrics]  WindowServer 0.08W, Codex (Aperitif Renderer) 0.04W, Google Chrome Helper (Aperitif Renderer) 0.04W
+04:40:11    0.56 W  [MEASURED/powermetrics]  WindowServer 0.09W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.05W
+04:40:12    0.88 W  [MEASURED/powermetrics]  WindowServer 0.11W, claude 0.09W, Codex (Aperitif Renderer) 0.07W
+04:40:13    1.05 W  [MEASURED/powermetrics]  WindowServer 0.23W, Codex (Aperitif Renderer) 0.13W, Google Chrome Helper (Aperitif Renderer) 0.12W
+04:40:15    0.57 W  [MEASURED/powermetrics]  WindowServer 0.07W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.05W
+04:40:16    0.75 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.09W, Codex (Aperitif Renderer) 0.08W
+04:40:17    1.64 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.52W, Google Chrome Helper (Aperitif Renderer) 0.38W, WindowServer 0.16W
+04:40:19    0.72 W  [MEASURED/powermetrics]  WindowServer 0.07W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.04W
+04:40:20    0.70 W  [MEASURED/powermetrics]  WindowServer 0.09W, Codex (Aperitif Renderer) 0.05W, Google Chrome Helper (Aperitif Renderer) 0.04W
+04:40:22    0.69 W  [MEASURED/powermetrics]  WindowServer 0.12W, Google Chrome Helper (Aperitif Renderer) 0.07W, Codex (Aperitif Renderer) 0.06W
+04:40:23    1.48 W  [MEASURED/powermetrics]  WindowServer 0.28W, Google Chrome Helper (Aperitif Renderer) 0.26W, Codex (Aperitif Renderer) 0.20W
+04:40:25    0.80 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.11W, WindowServer 0.10W, Codex (Aperitif Renderer) 0.08W
+04:40:26    0.65 W  [MEASURED/powermetrics]  WindowServer 0.08W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.04W
+04:40:27    0.72 W  [MEASURED/powermetrics]  WindowServer 0.10W, Codex (Aperitif Renderer) 0.05W, Google Chrome Helper (Aperitif Renderer) 0.04W
+04:40:29    0.59 W  [MEASURED/powermetrics]  WindowServer 0.07W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.04W
+04:40:30    0.69 W  [MEASURED/powermetrics]  WindowServer 0.09W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.05W
+04:40:31    0.81 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.17W, WindowServer 0.11W, Codex (Aperitif Renderer) 0.06W
+04:40:33    1.34 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.31W, WindowServer 0.26W, Codex (Aperitif Renderer) 0.14W
+04:40:34    1.23 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.56W, WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:40:36    0.65 W  [MEASURED/powermetrics]  WindowServer 0.08W, Codex (Aperitif Renderer) 0.04W, Codex (Aperitif) 0.04W
+04:40:37    0.64 W  [MEASURED/powermetrics]  WindowServer 0.07W, Google Chrome Helper (Aperitif Renderer) 0.06W, Codex (Aperitif Renderer) 0.06W
+04:40:38    1.43 W  [MEASURED/powermetrics]  WindowServer 0.30W, Codex (Aperitif Renderer) 0.16W, Google Chrome Helper (Aperitif Renderer) 0.15W
+04:40:40    0.61 W  [MEASURED/powermetrics]  WindowServer 0.08W, Google Chrome Helper (Aperitif Renderer) 0.06W, Codex (Aperitif Renderer) 0.04W
+04:40:41    0.67 W  [MEASURED/powermetrics]  WindowServer 0.11W, Codex (Aperitif Renderer) 0.06W, Google Chrome Helper (Aperitif Renderer) 0.06W
+04:40:43    1.52 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.49W, WindowServer 0.21W, Code Helper (Renderer) 0.13W
+04:40:44    0.78 W  [MEASURED/powermetrics]  WindowServer 0.14W, Code Helper (Renderer) 0.11W, Codex (Aperitif Renderer) 0.07W
+04:40:45    0.91 W  [MEASURED/powermetrics]  WindowServer 0.15W, Codex (Aperitif Renderer) 0.08W, Codex (Aperitif) 0.08W
+04:40:47    0.74 W  [MEASURED/powermetrics]  WindowServer 0.10W, Code Helper (Renderer) 0.09W, Google Chrome Helper (Aperitif Renderer) 0.04W
+04:40:48    1.70 W  [MEASURED/powermetrics]  WindowServer 0.39W, Codex (Aperitif Renderer) 0.17W, Google Chrome Helper (Aperitif Renderer) 0.17W
+04:40:50    0.71 W  [MEASURED/powermetrics]  WindowServer 0.08W, Code Helper (Renderer) 0.05W, Google Chrome Helper (Aperitif Renderer) 0.04W
+04:40:51    1.76 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.50W, Code Helper (Renderer) 0.25W, WindowServer 0.20W
+04:40:52    1.12 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.20W, WindowServer 0.15W, python 0.09W
+04:40:54    0.70 W  [MEASURED/powermetrics]  WindowServer 0.07W, Google Chrome Helper (Aperitif Renderer) 0.05W, Code Helper (Renderer) 0.05W
+04:40:55    0.85 W  [MEASURED/powermetrics]  WindowServer 0.15W, Codex (Aperitif Renderer) 0.07W, Google Chrome Helper (Aperitif Renderer) 0.07W
+04:40:57    1.16 W  [MEASURED/powermetrics]  WindowServer 0.20W, Codex (Aperitif Renderer) 0.13W, Code Helper (Renderer) 0.12W
+04:40:58    1.72 W  [MEASURED/powermetrics]  com.apple.Virtualization.VirtualMachine 0.33W, WindowServer 0.24W, claude 0.19W
+04:40:59    0.84 W  [MEASURED/powermetrics]  WindowServer 0.10W, Codex (Aperitif Renderer) 0.06W, Codex (Aperitif) 0.05W
+04:41:01    0.67 W  [MEASURED/powermetrics]  WindowServer 0.07W, Code Helper (Renderer) 0.06W, Codex (Aperitif Renderer) 0.05W
+04:41:02    0.78 W  [MEASURED/powermetrics]  WindowServer 0.11W, Code Helper (Renderer) 0.10W, Codex (Aperitif Renderer) 0.06W
+04:41:04    0.58 W  [MEASURED/powermetrics]  WindowServer 0.09W, Code Helper (Renderer) 0.05W, Codex (Aperitif Renderer) 0.05W
+04:41:05    0.62 W  [MEASURED/powermetrics]  WindowServer 0.09W, Code Helper (Renderer) 0.06W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:41:06    0.70 W  [MEASURED/powermetrics]  WindowServer 0.10W, Codex (Aperitif Renderer) 0.06W, Code Helper (Renderer) 0.06W
+04:41:08    1.92 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.50W, Google Chrome Helper (Aperitif Renderer) 0.41W, WindowServer 0.29W
+04:41:09    0.65 W  [MEASURED/powermetrics]  WindowServer 0.09W, Codex (Aperitif Renderer) 0.05W, Code Helper (Renderer) 0.05W
+04:41:11    0.77 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.21W, WindowServer 0.06W, Code Helper (Renderer) 0.04W
+04:41:12    0.75 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.10W, WindowServer 0.09W, Codex (Aperitif Renderer) 0.05W
+04:41:13    1.51 W  [MEASURED/powermetrics]  WindowServer 0.33W, Codex (Aperitif Renderer) 0.18W, Docker Desktop Helper (Renderer) 0.17W
+04:41:15    8.51 W  [MEASURED/powermetrics]  Code Helper (Renderer) 4.69W, WindowServer 0.63W, Code Helper (Plugin) 0.49W
+04:41:16    1.56 W  [MEASURED/powermetrics]  WindowServer 0.41W, Code Helper (Renderer) 0.17W, Codex (Aperitif Renderer) 0.13W
+04:41:17    1.74 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.52W, Code Helper (Renderer) 0.20W, WindowServer 0.19W
+04:41:19    1.57 W  [MEASURED/powermetrics]  WindowServer 0.34W, Code Helper (Renderer) 0.25W, Codex (Aperitif Renderer) 0.18W
+04:41:20    1.41 W  [MEASURED/powermetrics]  WindowServer 0.31W, Codex (Aperitif Renderer) 0.16W, Codex (Aperitif) 0.14W
+04:41:22    1.09 W  [MEASURED/powermetrics]  WindowServer 0.15W, Code Helper (Renderer) 0.11W, Codex (Aperitif Renderer) 0.11W
+04:41:23    2.05 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.38W, WindowServer 0.36W, Google Chrome Helper (Aperitif Renderer) 0.28W
+04:41:25    1.15 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.36W, Google Chrome Helper (Aperitif Renderer) 0.24W, WindowServer 0.17W
+04:41:26    0.70 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.07W, WindowServer 0.07W, Codex (Aperitif Renderer) 0.05W
+04:41:27    0.89 W  [MEASURED/powermetrics]  WindowServer 0.13W, Code Helper (Renderer) 0.09W, mdworker_shared 0.09W
+04:41:29    0.79 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.07W, Code Helper (Renderer) 0.07W
+04:41:30    0.80 W  [MEASURED/powermetrics]  WindowServer 0.12W, Codex (Aperitif Renderer) 0.06W, Google Chrome Helper (Aperitif Renderer) 0.06W
+04:41:32    0.90 W  [MEASURED/powermetrics]  deleted 0.26W, WindowServer 0.07W, Code Helper (Renderer) 0.05W
+04:41:33    1.79 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.28W, Google Chrome Helper (Aperitif Renderer) 0.24W, WindowServer 0.22W
+04:41:34    1.77 W  [MEASURED/powermetrics]  mobileassetd 0.41W, WindowServer 0.18W, Google Chrome Helper (Aperitif Renderer) 0.16W
+04:41:36    1.45 W  [MEASURED/powermetrics]  triald_system 0.22W, deleted 0.22W, Code Helper (Renderer) 0.13W
+04:41:37    1.22 W  [MEASURED/powermetrics]  deleted 0.24W, WindowServer 0.10W, Code Helper (Renderer) 0.10W
+04:41:39    0.95 W  [MEASURED/powermetrics]  triald 0.13W, WindowServer 0.06W, Code Helper (Renderer) 0.06W
+04:41:40    1.06 W  [MEASURED/powermetrics]  backupd 0.12W, WindowServer 0.10W, Code Helper (Renderer) 0.08W
+04:41:41    1.07 W  [MEASURED/powermetrics]  deleted 0.30W, WindowServer 0.08W, Code Helper (Renderer) 0.06W
+04:41:43    1.46 W  [MEASURED/powermetrics]  WindowServer 0.21W, Code Helper (Renderer) 0.18W, Google Chrome Helper (Aperitif Renderer) 0.13W
+04:41:44    1.05 W  [MEASURED/powermetrics]  mobileassetd 0.18W, WindowServer 0.08W, Codex (Aperitif Renderer) 0.07W
+04:41:46    1.21 W  [MEASURED/powermetrics]  deleted 0.25W, cloudd 0.14W, tccd 0.11W
+04:41:47    1.64 W  [MEASURED/powermetrics]  WindowServer 0.40W, Code Helper (Renderer) 0.20W, Codex (Aperitif Renderer) 0.17W
+04:41:49    1.51 W  [MEASURED/powermetrics]  mobileassetd 0.30W, Code Helper (Renderer) 0.15W, triald 0.11W
+04:41:50    1.36 W  [MEASURED/powermetrics]  WindowServer 0.35W, Code Helper (Renderer) 0.18W, Codex (Aperitif Renderer) 0.15W
+04:41:51    1.07 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.37W, WindowServer 0.08W, Codex (Aperitif Renderer) 0.06W
+04:41:53    1.89 W  [MEASURED/powermetrics]  WindowServer 0.32W, Google Chrome Helper (Aperitif Renderer) 0.27W, Code Helper (Renderer) 0.25W
+04:41:54    0.73 W  [MEASURED/powermetrics]  WindowServer 0.09W, Code Helper (Renderer) 0.07W, Codex (Aperitif Renderer) 0.06W
+04:41:56    2.66 W  [MEASURED/powermetrics]  WindowServer 0.60W, claude 0.34W, Codex (Aperitif Renderer) 0.25W
+04:41:57    2.89 W  [MEASURED/powermetrics]  Code Helper (Renderer) 1.37W, WindowServer 0.29W, Codex (Aperitif Renderer) 0.21W
+04:41:59    0.87 W  [MEASURED/powermetrics]  WindowServer 0.16W, Code Helper (Renderer) 0.09W, com.apple.Virtualization.VirtualMachine 0.08W
+04:42:00    1.09 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.28W, WindowServer 0.12W, Codex (Aperitif Renderer) 0.08W
+04:42:01    0.83 W  [MEASURED/powermetrics]  WindowServer 0.12W, Code Helper (Renderer) 0.07W, claude 0.07W
+04:42:03    3.30 W  [MEASURED/powermetrics]  Code Helper (Renderer) 1.32W, Google Chrome Helper (Aperitif Renderer) 0.64W, WindowServer 0.40W
+04:42:04    0.61 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.04W
+04:42:06    0.62 W  [MEASURED/powermetrics]  WindowServer 0.12W, Google Chrome Helper (Aperitif Renderer) 0.05W, Code Helper (Renderer) 0.04W
+04:42:07    1.75 W  [MEASURED/powermetrics]  WindowServer 0.55W, Google Chrome Helper (Aperitif Renderer) 0.23W, Codex (Aperitif Renderer) 0.22W
+04:42:08    2.83 W  [MEASURED/powermetrics]  PerfPowerServices 1.21W, WindowServer 0.43W, runningboardd 0.23W
+04:42:10    1.41 W  [MEASURED/powermetrics]  WindowServer 0.30W, Codex (Aperitif Renderer) 0.11W, cloudd 0.10W
+04:42:11    3.75 W  [MEASURED/powermetrics]  WindowServer 1.25W, Codex (Aperitif Renderer) 0.53W, Codex (Aperitif) 0.46W
+04:42:13    1.70 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.39W, WindowServer 0.30W, python 0.17W
+04:42:14    5.47 W  [MEASURED/powermetrics]  Code Helper (Renderer) 2.27W, WindowServer 1.26W, Codex (Aperitif Renderer) 0.50W
+04:42:15    0.67 W  [MEASURED/powermetrics]  WindowServer 0.12W, Codex (Aperitif Renderer) 0.05W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:42:17    4.20 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 1.74W, WindowServer 0.88W, Codex (Aperitif Renderer) 0.31W
+04:42:18    0.76 W  [MEASURED/powermetrics]  WindowServer 0.14W, Google Chrome Helper (Aperitif Renderer) 0.07W, Codex (Aperitif Renderer) 0.06W
+04:42:20    0.60 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.05W, Code Helper (Renderer) 0.04W
+04:42:21    0.63 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.06W, Codex (Aperitif Renderer) 0.04W
+04:42:22    2.48 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.72W, WindowServer 0.44W, Google Chrome Helper (Aperitif Renderer) 0.39W
+04:42:24    0.93 W  [MEASURED/powermetrics]  WindowServer 0.19W, Google Chrome Helper (Aperitif Renderer) 0.10W, Code Helper (Renderer) 0.09W
+04:42:25    0.88 W  [MEASURED/powermetrics]  WindowServer 0.17W, Google Chrome Helper (Aperitif Renderer) 0.11W, Codex (Aperitif Renderer) 0.08W
+04:42:27    1.87 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.70W, WindowServer 0.26W, Google Chrome Helper (Aperitif Renderer) 0.18W
+04:42:28    3.13 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.77W, WindowServer 0.64W, Codex (Aperitif Renderer) 0.28W
+04:42:29    0.99 W  [MEASURED/powermetrics]  WindowServer 0.15W, launchd 0.08W, mdworker_shared 0.08W
+04:42:31    0.58 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.05W, Code Helper (Renderer) 0.04W
+04:42:32    0.81 W  [MEASURED/powermetrics]  WindowServer 0.17W, Code Helper (Renderer) 0.10W, Codex (Aperitif Renderer) 0.09W
+04:42:34    0.98 W  [MEASURED/powermetrics]  WindowServer 0.19W, Google Chrome Helper (Aperitif Renderer) 0.12W, knowledge-agent 0.07W
+04:42:35    0.65 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.04W
+04:42:36    0.68 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.05W
+04:42:38    0.63 W  [MEASURED/powermetrics]  WindowServer 0.12W, Code Helper (Renderer) 0.07W, Codex (Aperitif Renderer) 0.05W
+04:42:39    0.79 W  [MEASURED/powermetrics]  WindowServer 0.20W, Google Chrome Helper (Aperitif Renderer) 0.07W, Codex (Aperitif Renderer) 0.07W
+04:42:40    0.77 W  [MEASURED/powermetrics]  WindowServer 0.16W, Google Chrome Helper (Aperitif Renderer) 0.07W, Codex (Aperitif Renderer) 0.06W
+04:42:42    0.76 W  [MEASURED/powermetrics]  WindowServer 0.10W, Code Helper (Renderer) 0.07W, Codex (Aperitif Renderer) 0.06W
+04:42:43    2.67 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.57W, WindowServer 0.44W, Code Helper (Plugin) 0.29W
+04:42:45    0.58 W  [MEASURED/powermetrics]  WindowServer 0.12W, Google Chrome Helper (Aperitif Renderer) 0.12W, Codex (Aperitif Renderer) 0.08W
+04:42:46    0.64 W  [MEASURED/powermetrics]  WindowServer 0.08W, Google Chrome Helper (Aperitif Renderer) 0.04W, Codex (Aperitif Renderer) 0.04W
+04:42:48    0.81 W  [MEASURED/powermetrics]  WindowServer 0.12W, Code Helper (Renderer) 0.08W, Codex (Aperitif Renderer) 0.07W
+04:42:49    0.75 W  [MEASURED/powermetrics]  com.apple.Virtualization.VirtualMachine 0.09W, WindowServer 0.08W, Code Helper (Renderer) 0.07W
+04:42:50    0.69 W  [MEASURED/powermetrics]  WindowServer 0.08W, Codex (Aperitif Renderer) 0.05W, Codex (Aperitif) 0.04W
+04:42:52    0.63 W  [MEASURED/powermetrics]  WindowServer 0.09W, Google Chrome Helper (Aperitif Renderer) 0.05W, Code Helper (Renderer) 0.04W
+04:42:53    0.59 W  [MEASURED/powermetrics]  WindowServer 0.07W, Codex (Aperitif Renderer) 0.04W, Google Chrome Helper (Aperitif Renderer) 0.04W
+04:42:54    1.00 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.19W, WindowServer 0.12W, Google Chrome Helper (Aperitif Renderer) 0.08W
+04:42:56    0.90 W  [MEASURED/powermetrics]  WindowServer 0.12W, Google Chrome Helper (Aperitif Renderer) 0.10W, Codex (Aperitif Renderer) 0.08W
+04:42:57    0.60 W  [MEASURED/powermetrics]  WindowServer 0.09W, Codex (Aperitif Renderer) 0.05W, Codex (Aperitif) 0.05W
+04:42:59    1.08 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.34W, WindowServer 0.15W, Google Chrome Helper (Aperitif Renderer) 0.11W
+04:43:00    0.63 W  [MEASURED/powermetrics]  WindowServer 0.07W, Google Chrome Helper (Aperitif Renderer) 0.06W, Codex (Aperitif Renderer) 0.06W
+04:43:01    0.56 W  [MEASURED/powermetrics]  WindowServer 0.06W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.04W
+04:43:03    0.67 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.27W, WindowServer 0.09W, Codex (Aperitif Renderer) 0.08W
+04:43:04    1.02 W  [MEASURED/powermetrics]  WindowServer 0.15W, Code Helper (Renderer) 0.11W, Codex (Aperitif Renderer) 0.10W
+04:43:06    0.84 W  [MEASURED/powermetrics]  WindowServer 0.10W, Codex (Aperitif Renderer) 0.06W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:43:07    0.94 W  [MEASURED/powermetrics]  WindowServer 0.17W, Code Helper (Renderer) 0.11W, Codex (Aperitif Renderer) 0.10W
+04:43:08    0.77 W  [MEASURED/powermetrics]  WindowServer 0.09W, Codex (Aperitif Renderer) 0.06W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:43:10    0.94 W  [MEASURED/powermetrics]  WindowServer 0.15W, Code Helper (Renderer) 0.09W, Codex (Aperitif Renderer) 0.07W
+04:43:11    0.81 W  [MEASURED/powermetrics]  WindowServer 0.12W, Codex (Aperitif Renderer) 0.08W, Codex (Aperitif) 0.07W
+04:43:13    0.73 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.06W, Codex (Aperitif Renderer) 0.05W
+04:43:14    1.11 W  [MEASURED/powermetrics]  WindowServer 0.21W, Google Chrome Helper (Aperitif Renderer) 0.13W, Codex (Aperitif Renderer) 0.10W
+04:43:15    0.66 W  [MEASURED/powermetrics]  WindowServer 0.07W, Codex (Aperitif Renderer) 0.05W, Google Chrome Helper (Aperitif Renderer) 0.04W
+04:43:17    0.79 W  [MEASURED/powermetrics]  WindowServer 0.12W, Codex (Aperitif Renderer) 0.05W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:43:18    0.71 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.06W, Codex (Aperitif Renderer) 0.05W
+04:43:20    0.92 W  [MEASURED/powermetrics]  WindowServer 0.13W, Codex (Aperitif Renderer) 0.10W, Codex (Aperitif) 0.09W
+04:43:21    0.82 W  [MEASURED/powermetrics]  WindowServer 0.13W, Google Chrome Helper (Aperitif Renderer) 0.08W, Codex (Aperitif Renderer) 0.07W
+04:43:22    2.42 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.59W, WindowServer 0.34W, Codex (Aperitif Renderer) 0.28W
+04:43:24    0.74 W  [MEASURED/powermetrics]  WindowServer 0.08W, Google Chrome Helper (Aperitif Renderer) 0.06W, Code Helper (Renderer) 0.06W
+04:43:25    0.75 W  [MEASURED/powermetrics]  WindowServer 0.09W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.04W
+04:43:27    0.64 W  [MEASURED/powermetrics]  WindowServer 0.07W, Code Helper (Renderer) 0.05W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:43:28    0.87 W  [MEASURED/powermetrics]  WindowServer 0.19W, Code Helper (Renderer) 0.09W, Codex (Aperitif Renderer) 0.08W
+04:43:29    1.01 W  [MEASURED/powermetrics]  WindowServer 0.12W, launchd 0.09W, Codex (Aperitif Renderer) 0.09W
+04:43:31    1.40 W  [MEASURED/powermetrics]  WindowServer 0.25W, Codex (Aperitif Renderer) 0.18W, Google Chrome Helper (Aperitif Renderer) 0.14W
+04:43:32    1.29 W  [MEASURED/powermetrics]  WindowServer 0.31W, Codex (Aperitif Renderer) 0.16W, Codex (Aperitif) 0.15W
+04:43:34    0.68 W  [MEASURED/powermetrics]  WindowServer 0.10W, Codex (Aperitif Renderer) 0.07W, Codex (Aperitif) 0.06W
+04:43:35    1.00 W  [MEASURED/powermetrics]  WindowServer 0.18W, Google Chrome Helper (Aperitif Renderer) 0.11W, Codex (Aperitif Renderer) 0.09W
+04:43:36    0.64 W  [MEASURED/powermetrics]  WindowServer 0.11W, Codex (Aperitif Renderer) 0.06W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:43:38    0.67 W  [MEASURED/powermetrics]  WindowServer 0.09W, Google Chrome Helper (Aperitif Renderer) 0.06W, Codex (Aperitif Renderer) 0.05W
+04:43:39    0.62 W  [MEASURED/powermetrics]  WindowServer 0.06W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.05W
+04:43:40    0.53 W  [MEASURED/powermetrics]  WindowServer 0.07W, Google Chrome Helper (Aperitif Renderer) 0.06W, Codex (Aperitif Renderer) 0.04W
+04:43:42    0.56 W  [MEASURED/powermetrics]  WindowServer 0.07W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.04W
+04:43:43    0.25 W  [MEASURED/powermetrics]  WindowServer 0.08W, Codex (Aperitif Renderer) 0.05W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:43:45    0.79 W  [MEASURED/powermetrics]  WindowServer 0.15W, Codex (Aperitif Renderer) 0.06W, Codex (Aperitif) 0.06W
+04:43:46    1.20 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.30W, WindowServer 0.21W, Google Chrome Helper (Aperitif Renderer) 0.09W
+04:43:47    1.21 W  [MEASURED/powermetrics]  WindowServer 0.31W, Google Chrome Helper (Aperitif Renderer) 0.15W, Codex (Aperitif Renderer) 0.15W
+04:43:49    0.82 W  [MEASURED/powermetrics]  mdworker_shared 0.10W, WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.08W
+04:43:50    0.69 W  [MEASURED/powermetrics]  WindowServer 0.11W, Codex (Aperitif Renderer) 0.06W, Google Chrome Helper (Aperitif Renderer) 0.06W
+04:43:52    0.62 W  [MEASURED/powermetrics]  WindowServer 0.06W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.04W
+04:43:53    0.62 W  [MEASURED/powermetrics]  WindowServer 0.09W, Google Chrome Helper (Aperitif Renderer) 0.06W, Codex (Aperitif Renderer) 0.05W
+04:43:54    2.25 W  [MEASURED/powermetrics]  WindowServer 0.46W, Google Chrome Helper (Aperitif Renderer) 0.25W, Codex (Aperitif Renderer) 0.25W
+04:43:56    0.85 W  [MEASURED/powermetrics]  WindowServer 0.14W, Google Chrome Helper (Aperitif Renderer) 0.12W, Codex (Aperitif Renderer) 0.06W
+04:43:57    0.62 W  [MEASURED/powermetrics]  WindowServer 0.09W, Google Chrome Helper (Aperitif Renderer) 0.06W, Codex (Aperitif Renderer) 0.05W
+04:43:58    0.66 W  [MEASURED/powermetrics]  WindowServer 0.08W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.05W
+04:44:00    0.88 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.08W, Codex (Aperitif Renderer) 0.08W
+04:44:01    0.60 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.15W, WindowServer 0.04W, Codex (Aperitif) 0.02W
+04:44:03    0.72 W  [MEASURED/powermetrics]  WindowServer 0.09W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.05W
+04:44:04    1.52 W  [MEASURED/powermetrics]  WindowServer 0.29W, Google Chrome Helper (Aperitif Renderer) 0.21W, Codex (Aperitif Renderer) 0.18W
+04:44:05    0.70 W  [MEASURED/powermetrics]  WindowServer 0.09W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.04W
+04:44:07    0.62 W  [MEASURED/powermetrics]  WindowServer 0.06W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.05W
+04:44:08    0.95 W  [MEASURED/powermetrics]  WindowServer 0.17W, Code Helper (Renderer) 0.11W, Codex (Aperitif Renderer) 0.09W
+04:44:10    0.77 W  [MEASURED/powermetrics]  WindowServer 0.09W, com.apple.Virtualization.VirtualMachine 0.08W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:44:11    0.65 W  [MEASURED/powermetrics]  WindowServer 0.07W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.04W
+04:44:12    0.72 W  [MEASURED/powermetrics]  WindowServer 0.11W, Codex (Aperitif Renderer) 0.07W, Codex (Aperitif) 0.06W
+04:44:14    0.58 W  [MEASURED/powermetrics]  WindowServer 0.08W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.04W
+04:44:15    0.63 W  [MEASURED/powermetrics]  WindowServer 0.07W, Codex (Aperitif Renderer) 0.04W, Google Chrome Helper (Aperitif Renderer) 0.04W
+04:44:17    0.58 W  [MEASURED/powermetrics]  WindowServer 0.06W, Google Chrome Helper (Aperitif Renderer) 0.05W, Codex (Aperitif Renderer) 0.04W
+04:44:18    1.20 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.24W, WindowServer 0.19W, Google Chrome Helper (Aperitif Renderer) 0.14W
+04:44:19    0.70 W  [MEASURED/powermetrics]  WindowServer 0.08W, Codex (Aperitif Renderer) 0.05W, Google Chrome Helper (Aperitif Renderer) 0.05W
+04:44:21    0.62 W  [MEASURED/powermetrics]  WindowServer 0.08W, Codex (Aperitif Renderer) 0.04W, Google Chrome Helper (Aperitif Renderer) 0.04W
+04:44:22    3.11 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 1.06W, Code Helper (Renderer) 0.43W, WindowServer 0.24W
+04:44:23    1.50 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.27W, WindowServer 0.24W, Code Helper (Renderer) 0.13W
+04:44:25    4.58 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 1.20W, WindowServer 0.76W, Google Chrome Helper (Aperitif) 0.37W
+04:44:26    1.44 W  [MEASURED/powermetrics]  WindowServer 0.18W, Google Chrome Helper (Aperitif Renderer) 0.15W, Google Chrome Helper (Aperitif) 0.11W
+04:44:28    1.45 W  [MEASURED/powermetrics]  WindowServer 0.23W, Code Helper (Renderer) 0.16W, Google Chrome Helper (Aperitif Renderer) 0.15W
+04:44:29    1.05 W  [MEASURED/powermetrics]  WindowServer 0.15W, Google Chrome Helper (Aperitif Renderer) 0.10W, Google Chrome Helper (Aperitif) 0.10W
+04:44:30    1.45 W  [MEASURED/powermetrics]  WindowServer 0.28W, Google Chrome Helper (Aperitif Renderer) 0.22W, Google Chrome Helper (Aperitif) 0.16W
+04:44:32    1.21 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.35W, WindowServer 0.12W, Code Helper (Renderer) 0.09W
+04:44:33    2.93 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.89W, Codex (Aperitif Renderer) 0.50W, WindowServer 0.26W
+04:44:35    1.83 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.30W, WindowServer 0.27W, Code Helper (Renderer) 0.17W
+04:44:36    1.32 W  [MEASURED/powermetrics]  WindowServer 0.19W, Google Chrome Helper (Aperitif Renderer) 0.17W, Code Helper (Renderer) 0.14W
+04:44:38    1.23 W  [MEASURED/powermetrics]  WindowServer 0.20W, Google Chrome Helper (Aperitif Renderer) 0.14W, Google Chrome Helper (Aperitif) 0.13W
+04:44:39    1.34 W  [MEASURED/powermetrics]  WindowServer 0.21W, Google Chrome Helper (Aperitif Renderer) 0.19W, Google Chrome Helper (Aperitif) 0.17W
+04:44:40    1.59 W  [MEASURED/powermetrics]  WindowServer 0.26W, Google Chrome Helper (Aperitif Renderer) 0.23W, Google Chrome Helper (Aperitif) 0.18W
+04:44:42    1.74 W  [MEASURED/powermetrics]  WindowServer 0.23W, Google Chrome Helper (Aperitif Renderer) 0.21W, Google Chrome Helper (Aperitif) 0.13W
+04:44:43    1.41 W  [MEASURED/powermetrics]  WindowServer 0.21W, Google Chrome Helper (Aperitif Renderer) 0.19W, Codex (Aperitif Renderer) 0.12W
+04:44:45    1.41 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.29W, WindowServer 0.16W, Google Chrome Helper (Aperitif) 0.11W
+04:44:46    1.36 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.39W, WindowServer 0.16W, Google Chrome Helper (Aperitif Renderer) 0.14W
+04:44:47    1.35 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.32W, WindowServer 0.16W, Google Chrome Helper (Aperitif Renderer) 0.15W
+04:44:49    1.14 W  [MEASURED/powermetrics]  WindowServer 0.15W, Google Chrome Helper (Aperitif Renderer) 0.14W, Google Chrome Helper (Aperitif) 0.10W
+04:44:50    1.80 W  [MEASURED/powermetrics]  WindowServer 0.34W, Google Chrome Helper (Aperitif Renderer) 0.30W, Google Chrome Helper (Aperitif) 0.22W
+04:44:52    1.17 W  [MEASURED/powermetrics]  WindowServer 0.15W, Google Chrome Helper (Aperitif Renderer) 0.14W, Google Chrome Helper (Aperitif) 0.11W
+04:44:53    1.63 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.39W, WindowServer 0.25W, Google Chrome Helper (Aperitif) 0.18W
+04:44:55    1.61 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.46W, WindowServer 0.26W, Google Chrome Helper (Aperitif) 0.12W
+04:44:56    1.95 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.49W, WindowServer 0.31W, Google Chrome Helper (Aperitif) 0.23W
+04:44:57    1.36 W  [MEASURED/powermetrics]  WindowServer 0.16W, Google Chrome Helper (Aperitif Renderer) 0.16W, Google Chrome Helper (Aperitif) 0.10W
+04:44:59    1.26 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.21W, WindowServer 0.20W, Google Chrome Helper (Aperitif) 0.13W
+04:45:00    2.23 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.53W, WindowServer 0.34W, Google Chrome Helper (Aperitif) 0.22W
+04:45:02    1.25 W  [MEASURED/powermetrics]  WindowServer 0.25W, Google Chrome Helper (Aperitif Renderer) 0.20W, Google Chrome Helper (Aperitif) 0.12W
+04:45:03    1.17 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.10W, searchpartyuseragent 0.08W
+04:45:04    0.76 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.08W, Google Chrome Helper (Aperitif) 0.06W
+04:45:06    1.46 W  [MEASURED/powermetrics]  WindowServer 0.27W, Codex (Aperitif Renderer) 0.25W, Google Chrome Helper (Aperitif Renderer) 0.22W
+04:45:07    1.17 W  [MEASURED/powermetrics]  WindowServer 0.13W, Google Chrome Helper (Aperitif Renderer) 0.12W, Google Chrome Helper (Aperitif) 0.11W
+04:45:09    1.57 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.34W, WindowServer 0.24W, Google Chrome Helper (Aperitif) 0.21W
+04:45:10    0.81 W  [MEASURED/powermetrics]  WindowServer 0.15W, Google Chrome Helper (Aperitif Renderer) 0.12W, com.apple.Virtualization.VirtualMachine 0.09W
+04:45:11    2.86 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 1.10W, WindowServer 0.49W, Codex (Aperitif Renderer) 0.28W
+04:45:13    1.60 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.44W, WindowServer 0.29W, Google Chrome Helper (Aperitif) 0.19W
+04:45:14    1.68 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.50W, WindowServer 0.18W, Google Chrome 0.17W
+04:45:16    0.96 W  [MEASURED/powermetrics]  mdworker_shared 0.19W, Google Chrome Helper (Aperitif Renderer) 0.09W, Google Chrome Helper (Aperitif) 0.06W
+04:45:17    1.13 W  [MEASURED/powermetrics]  WindowServer 0.19W, Google Chrome Helper (Aperitif Renderer) 0.16W, Google Chrome Helper (Aperitif) 0.11W
+04:45:19    1.50 W  [MEASURED/powermetrics]  Code Helper (Renderer) 0.43W, WindowServer 0.18W, Google Chrome Helper (Aperitif Renderer) 0.14W
+04:45:20    0.68 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.15W, WindowServer 0.08W, Google Chrome Helper (Aperitif) 0.06W
+04:45:21    1.35 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.41W, WindowServer 0.17W, Google Chrome Helper (Aperitif Renderer) 0.16W
+04:45:23    1.14 W  [MEASURED/powermetrics]  WindowServer 0.23W, Google Chrome Helper (Aperitif Renderer) 0.21W, Google Chrome Helper (Aperitif) 0.14W
+04:45:24    0.79 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.10W, Google Chrome Helper (Aperitif) 0.07W
+04:45:26    1.19 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.19W, WindowServer 0.16W, AMPArtworkAgent 0.12W
+04:45:27    1.14 W  [MEASURED/powermetrics]  WindowServer 0.20W, Google Chrome Helper (Aperitif Renderer) 0.19W, Google Chrome Helper (Aperitif) 0.14W
+04:45:28    1.39 W  [MEASURED/powermetrics]  WindowServer 0.20W, Google Chrome Helper (Aperitif Renderer) 0.13W, Codex (Aperitif Renderer) 0.11W
+04:45:30    0.92 W  [MEASURED/powermetrics]  WindowServer 0.12W, Google Chrome Helper (Aperitif Renderer) 0.11W, Google Chrome Helper (Aperitif) 0.08W
+04:45:31    0.92 W  [MEASURED/powermetrics]  WindowServer 0.12W, Google Chrome Helper (Aperitif Renderer) 0.10W, Google Chrome Helper (Aperitif) 0.07W
+04:45:33    0.87 W  [MEASURED/powermetrics]  WindowServer 0.13W, Google Chrome Helper (Aperitif Renderer) 0.10W, Google Chrome Helper (Aperitif) 0.07W
+04:45:34    0.72 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.08W, Google Chrome Helper (Aperitif) 0.06W
+04:45:35    0.83 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.09W, Google Chrome Helper (Aperitif) 0.06W
+04:45:37    0.95 W  [MEASURED/powermetrics]  WindowServer 0.13W, Google Chrome Helper (Aperitif Renderer) 0.09W, Google Chrome Helper (Aperitif) 0.07W
+04:45:38    1.64 W  [MEASURED/powermetrics]  WindowServer 0.30W, Google Chrome Helper (Aperitif Renderer) 0.25W, Codex (Aperitif Renderer) 0.21W
+04:45:39    0.91 W  [MEASURED/powermetrics]  WindowServer 0.12W, Google Chrome Helper (Aperitif Renderer) 0.09W, Google Chrome Helper (Aperitif) 0.08W
+04:45:41    1.02 W  [MEASURED/powermetrics]  WindowServer 0.14W, Google Chrome Helper (Aperitif Renderer) 0.12W, Google Chrome Helper (Aperitif) 0.09W
+04:45:42    0.84 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.14W, WindowServer 0.12W, Google Chrome Helper (Aperitif) 0.08W
+04:45:44    1.02 W  [MEASURED/powermetrics]  WindowServer 0.14W, Google Chrome Helper (Aperitif Renderer) 0.12W, Google Chrome Helper (Aperitif) 0.08W
+04:45:45    0.87 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.14W, WindowServer 0.11W, Google Chrome Helper (Aperitif) 0.06W
+04:45:46    0.87 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.08W, Google Chrome Helper (Aperitif) 0.06W
+04:45:48    0.71 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.09W, Google Chrome Helper (Aperitif) 0.07W
+04:45:49    0.85 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.08W, Google Chrome Helper (Aperitif) 0.06W
+04:45:51    0.49 W  [MEASURED/powermetrics]  WindowServer 0.12W, Google Chrome Helper (Aperitif Renderer) 0.11W, Google Chrome Helper (Aperitif) 0.09W
+04:45:52    0.88 W  [MEASURED/powermetrics]  WindowServer 0.12W, Google Chrome Helper (Aperitif Renderer) 0.08W, Google Chrome Helper (Aperitif) 0.06W
+04:45:53    1.71 W  [MEASURED/powermetrics]  CommCenter 0.28W, WindowServer 0.21W, Google Chrome Helper (Aperitif Renderer) 0.15W
+04:45:55    1.09 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.16W, WindowServer 0.15W, Google Chrome Helper (Aperitif) 0.09W
+04:45:56    0.38 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.08W, Google Chrome Helper (Aperitif) 0.06W
+04:45:58    0.73 W  [MEASURED/powermetrics]  WindowServer 0.12W, Google Chrome Helper (Aperitif Renderer) 0.10W, Google Chrome Helper (Aperitif) 0.08W
+04:45:59    1.39 W  [MEASURED/powermetrics]  Docker Desktop Helper (Renderer) 0.19W, WindowServer 0.18W, Google Chrome Helper (Aperitif Renderer) 0.14W
+04:46:00    1.05 W  [MEASURED/powermetrics]  WindowServer 0.13W, com.apple.Virtualization.VirtualMachine 0.12W, Google Chrome Helper (Aperitif Renderer) 0.10W
+04:46:02    0.80 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.10W, Google Chrome Helper (Aperitif) 0.07W
+04:46:03    0.65 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.08W, Google Chrome Helper (Aperitif) 0.06W
+04:46:05    0.69 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.09W, Google Chrome Helper (Aperitif) 0.07W
+04:46:06    0.75 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.07W, Google Chrome Helper (Aperitif) 0.06W
+04:46:07    1.00 W  [MEASURED/powermetrics]  WindowServer 0.14W, Google Chrome Helper (Aperitif Renderer) 0.09W, Codex (Aperitif Renderer) 0.09W
+04:46:09    0.97 W  [MEASURED/powermetrics]  WindowServer 0.20W, Google Chrome Helper (Aperitif Renderer) 0.11W, Google Chrome Helper (Aperitif) 0.11W
+04:46:10    1.40 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.48W, WindowServer 0.19W, Google Chrome Helper (Aperitif Renderer) 0.12W
+04:46:12    0.85 W  [MEASURED/powermetrics]  WindowServer 0.14W, Google Chrome Helper (Aperitif Renderer) 0.11W, Google Chrome Helper (Aperitif) 0.09W
+04:46:13    1.17 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.26W, WindowServer 0.21W, Google Chrome Helper (Aperitif) 0.11W
+04:46:14    0.69 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.08W, Google Chrome Helper (Aperitif) 0.06W
+04:46:16    0.70 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.10W, Google Chrome Helper (Aperitif) 0.07W
+04:46:17    0.70 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.08W, Google Chrome Helper (Aperitif) 0.06W
+04:46:18    0.72 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.10W, Google Chrome Helper (Aperitif) 0.08W
+04:46:20    0.31 W  [MEASURED/powermetrics]  WindowServer 0.09W, Google Chrome Helper (Aperitif Renderer) 0.09W, Google Chrome Helper (Aperitif) 0.07W
+04:46:21    0.73 W  [MEASURED/powermetrics]  WindowServer 0.13W, Google Chrome Helper (Aperitif Renderer) 0.11W, Google Chrome Helper (Aperitif) 0.08W
+04:46:23    1.03 W  [MEASURED/powermetrics]  Google Chrome Helper (Aperitif Renderer) 0.24W, WindowServer 0.20W, Google Chrome Helper (Aperitif) 0.12W
+04:46:24    0.73 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.09W, Google Chrome Helper (Aperitif) 0.07W
+04:46:25    0.84 W  [MEASURED/powermetrics]  WindowServer 0.16W, Google Chrome Helper (Aperitif Renderer) 0.13W, Google Chrome Helper (Aperitif) 0.08W
+04:46:27    1.28 W  [MEASURED/powermetrics]  Codex (Aperitif Renderer) 0.54W, WindowServer 0.13W, Google Chrome Helper (Aperitif Renderer) 0.11W
+04:46:28    0.61 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.08W, Google Chrome Helper (Aperitif) 0.06W
+04:46:30    0.70 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.08W, Google Chrome Helper (Aperitif) 0.06W
+04:46:31    0.79 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.10W, Google Chrome Helper (Aperitif) 0.08W
+04:46:32    0.73 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.08W, Google Chrome Helper (Aperitif) 0.06W
+04:46:34    0.77 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.08W, mdworker_shared 0.07W
+04:46:35    0.62 W  [MEASURED/powermetrics]  WindowServer 0.10W, Google Chrome Helper (Aperitif Renderer) 0.08W, Google Chrome Helper (Aperitif) 0.06W
+04:46:36    1.24 W  [MEASURED/powermetrics]  WindowServer 0.23W, Google Chrome Helper (Aperitif Renderer) 0.22W, Google Chrome Helper (Aperitif) 0.11W
+04:46:38    0.77 W  [MEASURED/powermetrics]  WindowServer 0.13W, Google Chrome Helper (Aperitif Renderer) 0.10W, Google Chrome Helper (Aperitif) 0.07W
+04:46:39    0.80 W  [MEASURED/powermetrics]  WindowServer 0.11W, Google Chrome Helper (Aperitif Renderer) 0.10W, Google Chrome Helper (Aperitif) 0.08W
+{'session': '2f31869a', 'stored': 642, 'errors': 0}
+subhashkashyap@Subhashs-MacBook-Air joule-receipts % sudo .venv/bin/python -m joule certify --name "Prime counter" --baseline "python3 examples/primes_v1.py" --candidate "python3 examples/primes_v2.py" --source powermetrics
+Password:
+certifying 'Prime counter' with powermetrics (MEASURED), 5 runs per version
+[certify] checking both versions run: 'python3 examples/primes_v1.py' / 'python3 examples/primes_v2.py'
+[certify] sensor=powermetrics (MEASURED), interval=1.0s, repeats=5
+[certify] idle power 1.154 W ± 0.557 (n=11)
+[certify] run 1/5 baseline    1.97s   6.96 W net    3.179 mWh  {'stdout_sha256': '7943af8bac83d281', 'stdout_bytes': 6, 'seconds': 2.009, 'reps': 8}
+[certify] run 1/5 optimized   0.02s   4.53 W net    0.020 mWh  {'stdout_sha256': '7943af8bac83d281', 'stdout_bytes': 6, 'seconds': 0.058, 'reps': 707}
+[certify] run 2/5 optimized   0.02s   4.62 W net    0.021 mWh  {'stdout_sha256': '7943af8bac83d281', 'stdout_bytes': 6, 'seconds': 0.065, 'reps': 701}
+[certify] run 2/5 baseline    1.95s   6.76 W net    3.039 mWh  {'stdout_sha256': '7943af8bac83d281', 'stdout_bytes': 6, 'seconds': 1.993, 'reps': 8}
+[certify] run 3/5 baseline    1.96s   6.89 W net    3.116 mWh  {'stdout_sha256': '7943af8bac83d281', 'stdout_bytes': 6, 'seconds': 1.98, 'reps': 8}
+[certify] run 3/5 optimized   0.02s   4.75 W net    0.021 mWh  {'stdout_sha256': '7943af8bac83d281', 'stdout_bytes': 6, 'seconds': 0.052, 'reps': 705}
+[certify] run 4/5 optimized   0.02s   4.49 W net    0.019 mWh  {'stdout_sha256': '7943af8bac83d281', 'stdout_bytes': 6, 'seconds': 0.05, 'reps': 715}
+[certify] run 4/5 baseline    1.95s   6.77 W net    3.037 mWh  {'stdout_sha256': '7943af8bac83d281', 'stdout_bytes': 6, 'seconds': 1.978, 'reps': 8}
+[certify] run 5/5 baseline    1.96s   6.93 W net    3.138 mWh  {'stdout_sha256': '7943af8bac83d281', 'stdout_bytes': 6, 'seconds': 1.991, 'reps': 8}
+[certify] run 5/5 optimized   0.02s   4.55 W net    0.020 mWh  {'stdout_sha256': '7943af8bac83d281', 'stdout_bytes': 6, 'seconds': 0.052, 'reps': 714}
+
+experiment 9, receipt 9 (hash-chained, queued for sync)
+========================================================================
+ RECEIPT · Software certificate: Prime counter  [MEASURED via powermetrics]
+========================================================================
+ baseline : python3 examples/primes_v1.py
+ optimized: python3 examples/primes_v2.py
+ runs     : 5 each, interleaved; idle power 1.154 W (median); basis: energy above idle per run
+ energy   : median 3.12 -> 0.02 mWh per run (mean 3.1 ± 0.062 -> 0.02 ± 0.001)
+ saved    : 3.1 mWh (99.36%)  significant: yes (Mann-Whitney p=0.0079; mean-based noise ±0.056 mWh)
+ cost/CO2 : ₹0.000018 · 0.0022 g CO2e per run (₹5.8/kWh, 0.716 kg/kWh)
+ same work: yes · trade-off: both versions printed identical output (same work)
+ label    : A (1% of the old version's energy) - CERTIFIED
+ certificate: /Users/subhashkashyap/Documents/AskThili/joule-receipts/data/certificates/software-9.html
+subhashkashyap@Subhashs-MacBook-Air joule-receipts % 
